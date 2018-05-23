@@ -1,13 +1,13 @@
 var time = 'monthly';
 
 var chartData;  //var to store data from the json file
-            $.ajax({
-                dataType: "json",
-                url: 'data.json',
-                success: function(data){
-                    main(data, time);
-                }
-            });
+$.ajax({
+    dataType: "json",
+    url: 'data.json',
+    success: function(data){
+        main(data, time);
+    }
+});
 
 document.getElementById("monthly").addEventListener("click", function(){
     time = 'monthly';
@@ -37,8 +37,8 @@ function main(data, time) {
     else if(time == 'daily') {
         time = chartData.daily;
     }
-    x = prepareTableDataLine(time);
-    createTable(x, '#theTable');
+    // x = prepareTableDataLine(time);
+    // createTable(x);
     createChart(time);
 }    
 
@@ -97,9 +97,9 @@ function createTable(tableData, tableID){
 function createChart(timeFrame){
     
     var thisTime = JSON.parse(JSON.stringify(timeFrame));
-    // for(var i =0; i < thisTime.dates.length; i++){
-    //         thisTime.dates[i] = thisTime.dates[i].substr(0, 4) + '-' + thisTime.dates[i].substr(4, 2) + '-' + thisTime.dates[i].substr(6, 2);
-    //     }
+    for(var i =0; i < thisTime.dates.length; i++){
+            thisTime.dates[i] = thisTime.dates[i].substr(0, 4) + '-' + thisTime.dates[i].substr(4, 2) + '-' + thisTime.dates[i].substr(6, 2);
+        }
     dateKey = Object.keys(thisTime)[0];      
     thisTime[dateKey].unshift(dateKey); //data formatting to create the chart
     columnss = thisTime.dates;
@@ -153,7 +153,7 @@ function downloadCSVLine(timeFrame){
 
 //BARCHART STUFF
 var barChartData;
-var titles=["Departments", "Members"]; 
+//var titles=["Departments", "Members"]; 
         
 document.getElementById("DownloadCSVBar").addEventListener("click", function(){
     downloadCSVBar(barChartData);
@@ -161,12 +161,12 @@ document.getElementById("DownloadCSVBar").addEventListener("click", function(){
 
 $.ajax({
     dataType: "json",
-    url: 'incoming_data_barchart_jorts.json',
+    url: 'barChartData2.json',
     success: function(d){
         barChartData = d;
         x = prepareTableDataBar(d);
         createChartBar(d);
-        createTable(x, '#test');
+        createTable2(x, '#test');
     }
 });
         
@@ -181,11 +181,30 @@ function prepareTableDataBar(chartData){
     return dataSet;
 }
 
+function createTable2(tableData, chartData){
+    zeroethKey = Object.keys(barChartData)[0];
+    firstKey = Object.keys(barChartData)[1]; 
+    $(document).ready(function() {
+        $('#test').DataTable( {
+        data: tableData,
+        columns: [
+        { title: zeroethKey },
+        { title: firstKey },
+        ],
+        "scrollY": "500px",
+        "paging": false,
+        scrollCollapse: true
+        } );
+    } );
+}
+
 function createChartBar(barChartData){
-    columnss = barChartData.departments;
+    zeroethKey = Object.keys(barChartData)[0];
+    firstKey = Object.keys(barChartData)[1]; 
+    columnss = barChartData[zeroethKey];
     //barChartData.members.unshift('members');
     //barChartData.members.unshift('departments');
-    dataa = barChartData.members;
+    dataa = barChartData[firstKey];
     var chart = c3.generate({
         bindto: '#chart1',
         data: {
