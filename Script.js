@@ -136,9 +136,6 @@ function createChart(timeFrame){
 function downloadCSVLine(timeFrame){
     // Shape the data into an acceptable format for parsing
     var thisTime = JSON.parse(JSON.stringify(timeFrame));
-    for(var i =0; i < thisTime.dates.length; i++){
-            thisTime.dates[i] = thisTime.dates[i].substr(0, 4) + '-' + thisTime.dates[i].substr(4, 2) + '-' + thisTime.dates[i].substr(6, 2);
-        }
     var overall = [];
     valueKey = Object.keys(thisTime)[1];
     dateKey = Object.keys(thisTime)[0];
