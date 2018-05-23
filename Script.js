@@ -133,7 +133,10 @@ function createChart(timeFrame){
                     format: '%Y-%m-%d'
                     }
                 }
-            }
+            },
+            legend: {
+                show: false
+              }
         });
     }
 
@@ -233,7 +236,10 @@ function createChartBar(barChartData){
                 type: 'category',
                 categories: columnss
             }
-        }
+        },
+        legend: {
+            show: false
+          }
     });
 }
 
