@@ -39,6 +39,8 @@ function main(data, time) {
     }
     // x = prepareTableDataLine(time);
     // createTable(x);
+    x = prepareTableDataLine(time);
+    createTable(x, '#theTable');
     createChart(time);
 }    
 
@@ -98,7 +100,7 @@ function createChart(timeFrame){
     
     var thisTime = JSON.parse(JSON.stringify(timeFrame));
     for(var i =0; i < thisTime.dates.length; i++){
-            thisTime.dates[i] = thisTime.dates[i].substr(0, 4) + '-' + thisTime.dates[i].substr(4, 2) + '-' + thisTime.dates[i].substr(6, 2);
+            //thisTime.dates[i] = thisTime.dates[i].substr(0, 4) + '-' + thisTime.dates[i].substr(4, 2) + '-' + thisTime.dates[i].substr(6, 2);
         }
     dateKey = Object.keys(thisTime)[0];      
     thisTime[dateKey].unshift(dateKey); //data formatting to create the chart
