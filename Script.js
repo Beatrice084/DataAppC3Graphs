@@ -172,7 +172,7 @@ $.ajax({
         barChartData = d;
         x = prepareTableDataBar(d);
         createChartBar(d);
-        createTable2(x, '#test');
+        createTable(x, '#test');
     }
 });
         
@@ -185,23 +185,6 @@ function prepareTableDataBar(chartData){
         dataSet[i].push(barChartData[firstKey][i]);
     }
     return dataSet;
-}
-
-function createTable2(tableData, chartData){
-    zeroethKey = Object.keys(barChartData)[0];
-    firstKey = Object.keys(barChartData)[1]; 
-    $(document).ready(function() {
-        $('#test').DataTable( {
-        data: tableData,
-        columns: [
-        { title: zeroethKey },
-        { title: firstKey },
-        ],
-        "scrollY": "500px",
-        "paging": false,
-        scrollCollapse: true
-        } );
-    } );
 }
 
 function createChartBar(barChartData){
