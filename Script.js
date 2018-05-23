@@ -3,7 +3,7 @@ var time = 'monthly';
 var chartData;  //var to store data from the json file
 $.ajax({
     dataType: "json",
-    url: 'data.json',
+    url: 'lineChartData1.json',
     success: function(data){
         main(data, time);
     }
@@ -160,7 +160,7 @@ document.getElementById("DownloadCSVBar").addEventListener("click", function(){
 
 $.ajax({
     dataType: "json",
-    url: 'incoming_data_barchart_jorts.json',
+    url: 'barChartData2.json',
     success: function(d){
         barChartData = d;
         x = prepareTableDataBar(d);
@@ -200,10 +200,10 @@ function createTable2(tableData, chartData){
 function createChartBar(barChartData){
     zeroethKey = Object.keys(barChartData)[0];
     firstKey = Object.keys(barChartData)[1]; 
-    columnss = barChartData[zeroethKey];
+    columnss = barChartData[zeroethKey].slice(0,21);
     //barChartData.members.unshift('members');
     //barChartData.members.unshift('departments');
-    dataa = barChartData[firstKey];
+    dataa = barChartData[firstKey].slice(0,21);
     var chart = c3.generate({
         bindto: '#chart1',
         data: {
