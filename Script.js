@@ -121,6 +121,10 @@ function createChart(timeFrame){
                     columnss,   // example of what is being passed ['x', "20170831", "20170930", "20171031", "20171130", "20171231", "20180131", "20180228", "20180331", "20180430", "20180531"],
                     dataa,      // example of what is being passed ['users', 20, 26, 26, 27, 27, 31, 34, 34, 34, 43]
                 ],
+                color: function (color, d) {
+                    // d will be 'id' when called for legends
+                    return d.id && d.id === valueKey ? d3.rgb(color).darker(d.value / 30) : color;
+                },
             },
             axis: {
                 x: {
@@ -200,17 +204,22 @@ function createTable2(tableData, chartData){
 function createChartBar(barChartData){
     zeroethKey = Object.keys(barChartData)[0];
     firstKey = Object.keys(barChartData)[1]; 
+    barChartData[zeroethKey].unshift(zeroethKey);
+    barChartData[firstKey].unshift(firstKey);
     columnss = barChartData[zeroethKey].slice(0,21);
-    //barChartData.members.unshift('members');
-    //barChartData.members.unshift('departments');
     dataa = barChartData[firstKey].slice(0,21);
+    var str = firstKey;
     var chart = c3.generate({
         bindto: '#chart1',
         data: {
             columns: [
                 dataa,
             ],
-            type: 'bar'
+            type: 'bar',
+            color: function (color, d) {
+                // d will be 'id' when called for legends
+                return d.id && d.id === firstKey ? d3.rgb(color).darker(d.value / 15) : color;
+            },
         },
         bar: {
             width: {
