@@ -161,7 +161,7 @@ document.getElementById("DownloadCSVBar").addEventListener("click", function(){
 
 $.ajax({
     dataType: "json",
-    url: 'barChartData2.json',
+    url: 'incoming_data_barchart_jorts.json',
     success: function(d){
         barChartData = d;
         x = prepareTableDataBar(d);
