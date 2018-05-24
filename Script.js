@@ -124,7 +124,7 @@ function createChart(timeFrame){
                 color: function (color, d) {
                     // d will be 'id' when called for legends
                     return d.id && d.id === valueKey ? d3.rgb(color).darker(d.value / 30) : color;
-                },
+                    },
             },
             axis: {
                 x: {
@@ -133,10 +133,7 @@ function createChart(timeFrame){
                     format: '%Y-%m-%d'
                     }
                 }
-            },
-            legend: {
-                show: false
-              }
+            }
         });
     }
 
@@ -170,7 +167,7 @@ $.ajax({
     url: 'barChartData2.json',
     success: function(d){
         barChartData = d;
-        x = prepareTableDataBar(d);
+        x = prepareTableDataBar2(d);
         createChartBar(d);
         createTable(x, '#test');
     }
@@ -219,12 +216,16 @@ function createChartBar(barChartData){
         axis: {
             x: {
                 type: 'category',
-                categories: columnss
+                categories: columnss,
             }
         },
         legend: {
             show: false
-          }
+        },
+        onrendered: function() {
+            d3.selectAll(".c3-axis.c3-axis-x .tick text")
+                .style("display", "none");
+        }
     });
 }
 
@@ -244,12 +245,12 @@ function downloadCSVBar(barChartData){
 
 function validTypeCheck (typeStr) {
     validTypes = ['file','discussion','event_calendar','groups','blog',
-    'bookmarks','pages'];
+    'bookmarks','pages', 'docs'];
     if (validTypes.includes(typeStr)) {
         return typeStr;
     } 
     else {
-        return 'unknown'
+        return 'unknown';
     }
 }
 
@@ -274,14 +275,35 @@ function fixDuplicateEntries (data) {
             newData.push(data[i]);
         }
     }
-    // Fix ordering??
+    // Fix ordering
+    newData.sort(function(a,b){
+        return a[1] - b[1];
+    });
     return newData;
 }
 
-function fixData(data){
-    /*var fixed_data = [];
-    for (var i=0;i<data.members.length;i++) {
-    fixed_data.push([ '('+ this.validTypeCheck(data.urls[i]) +') ' + data.titles[i], parseInt(data.pageviews[i])]);
-    }*/
+function fixDataBarChart2(data){
+    zeroethKey = Object.keys(data)[0]; //"fileType"
+    //goes through file type array and applies validTypeCheck
+    for(var i=0; i<data[zeroethKey].length; i++){ 
+        data[zeroethKey][i] = validTypeCheck(data[zeroethKey][i]);
+    }
     data = fixDuplicateEntries(data);
+    return data;
+}
+
+//returns data in format [ ['(file) name', 30], ['(file) name2', 20] ]
+function prepareTableDataBar2(chartData){
+    var dataSet = []
+    zeroethKey = Object.keys(chartData)[0];
+    firstKey = Object.keys(chartData)[1]; 
+    secondKey = Object.keys(chartData)[2];
+    for(var i =0; i < chartData[zeroethKey].length; i++){
+        chartData[zeroethKey][i] = "(" + chartData[zeroethKey][i] + ") " + chartData[secondKey][i]; 
+    }
+    for(var i =0; i < chartData[zeroethKey].length; i++){
+        dataSet.push(chartData[zeroethKey][i].split());
+        dataSet[i].push(chartData[firstKey][i]);
+    }
+    return dataSet;
 }
