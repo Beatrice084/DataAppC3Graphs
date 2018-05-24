@@ -3,7 +3,7 @@ var time = 'monthly';
 var chartData;  //var to store data from the json file
 $.ajax({
     dataType: "json",
-    url: 'lineChartData1.json',
+    url: 'lineChartData2.json',
     success: function(data){
         main(data, time);
     }
