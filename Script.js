@@ -192,8 +192,10 @@ function createChartBar(barChartData){
     firstKey = Object.keys(barChartData)[1]; 
     barChartData[zeroethKey].unshift(zeroethKey);
     barChartData[firstKey].unshift(firstKey);
-    columnss = barChartData[zeroethKey].slice(0,21);
+    columnss = barChartData[zeroethKey].slice(1,21);
     dataa = barChartData[firstKey].slice(0,21);
+    console.log(columnss);
+    console.log(dataa);
     var str = firstKey;
     var chart = c3.generate({
         bindto: '#chart1',
