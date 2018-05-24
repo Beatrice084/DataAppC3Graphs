@@ -191,8 +191,6 @@ function createChartBar(barChartData){
     barChartData[firstKey].unshift(firstKey);
     columnss = barChartData[zeroethKey].slice(1,21);
     dataa = barChartData[firstKey].slice(0,21);
-    console.log(columnss);
-    console.log(dataa);
     var str = firstKey;
     var chart = c3.generate({
         bindto: '#chart1',
@@ -218,9 +216,6 @@ function createChartBar(barChartData){
                 type: 'category',
                 categories: columnss,
             }
-        },
-        legend: {
-            show: false
         },
         onrendered: function() {
             d3.selectAll(".c3-axis.c3-axis-x .tick text")
