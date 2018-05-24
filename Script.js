@@ -189,7 +189,7 @@ function createChartBar(barChartData){
     firstKey = Object.keys(barChartData)[1]; 
     barChartData[zeroethKey].unshift(zeroethKey);
     barChartData[firstKey].unshift(firstKey);
-    columnss = barChartData[zeroethKey].slice(0,21);
+    columnss = barChartData[zeroethKey].slice(1,21);
     dataa = barChartData[firstKey].slice(0,21);
     var str = firstKey;
     var chart = c3.generate({
@@ -214,11 +214,15 @@ function createChartBar(barChartData){
         axis: {
             x: {
                 type: 'category',
-                categories: columnss
+                categories: columnss,
             }
         },
         legend: {
             show: false
+        },
+        onrendered: function() {
+            d3.selectAll(".c3-axis.c3-axis-x .tick text")
+                .style("display", "none");
         }
     });
 }
@@ -269,21 +273,24 @@ function fixDuplicateEntries (data) {
             newData.push(data[i]);
         }
     }
-    // Fix ordering??
+    // Fix ordering
+    newData.sort(function(a,b){
+        return a[1] - b[1];
+    });
     return newData;
 }
 
-function fixData(data){
-    var fixed_data = data;
-    zeroethKey = Object.keys(barChartData)[0];
-    firstKey = Object.keys(barChartData)[1]; 
-    for(var i=0; i<data[zeroethKey].length; i++){
+function fixDataBarChart2(data){
+    zeroethKey = Object.keys(data)[0]; //"fileType"
+    //goes through file type array and applies validTypeCheck
+    for(var i=0; i<data[zeroethKey].length; i++){ 
         data[zeroethKey][i] = validTypeCheck(data[zeroethKey][i]);
     }
-    fixed_data = fixDuplicateEntries(data);
-    return fixed_data;
+    data = fixDuplicateEntries(data);
+    return data;
 }
 
+//returns data in format [ ['(file) name', 30], ['(file) name2', 20] ]
 function prepareTableDataBar2(chartData){
     var dataSet = []
     zeroethKey = Object.keys(chartData)[0];
