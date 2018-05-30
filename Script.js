@@ -193,18 +193,23 @@ function downloadCSVLine(timeFrame){
 
 
 //BARCHART STUFF
-var barChartData;
+var barChartData1;
+var barChartData2;
 //var titles=["Departments", "Members"]; 
         
-document.getElementById("DownloadCSVBar").addEventListener("click", function(){
-    downloadCSVBar(barChartData);
+document.getElementById("DownloadCSVBar1").addEventListener("click", function(){
+    downloadCSVBar(barChartData1);
+});
+
+document.getElementById("DownloadCSVBar2").addEventListener("click", function(){
+    downloadCSVBar(barChartData2);
 });
 
 $.ajax({
     dataType: "json",
     url: 'barChartData1.json',
     success: function(d){
-        barChartData = d;
+        barChartData1 = d;
         x = prepareTableDataBar(d);
         createChartBar(d, barChart1);
         createTable(x, '#test1');
@@ -215,7 +220,7 @@ $.ajax({
     dataType: "json",
     url: 'barChartData2.json',
     success: function(d){
-        barChartData = d;
+        barChartData2 = d;
         x = prepareTableDataBar2(d);
         createChartBar(d, barChart2);
         createTable(x, '#test2');
@@ -224,22 +229,22 @@ $.ajax({
         
 function prepareTableDataBar(chartData){
     var dataSet = []
-    zeroethKey = Object.keys(barChartData)[0];
-    firstKey = Object.keys(barChartData)[1]; 
-    for(var i =0; i < barChartData[zeroethKey].length; i++){
-        dataSet.push(barChartData[zeroethKey][i].split());
-        dataSet[i].push(barChartData[firstKey][i]);
+    zeroethKey = Object.keys(chartData)[0];
+    firstKey = Object.keys(chartData)[1]; 
+    for(var i =0; i < chartData[zeroethKey].length; i++){
+        dataSet.push(chartData[zeroethKey][i].split());
+        dataSet[i].push(chartData[firstKey][i]);
     }
     return dataSet;
 }
 
-function createChartBar(barChartData, chartID){
-    zeroethKey = Object.keys(barChartData)[0];
-    firstKey = Object.keys(barChartData)[1]; 
-    barChartData[zeroethKey].unshift(zeroethKey);
-    barChartData[firstKey].unshift(firstKey);
-    columnss = barChartData[zeroethKey].slice(1,21);
-    dataa = barChartData[firstKey].slice(0,21);
+function createChartBar(chartData, chartID){
+    zeroethKey = Object.keys(chartData)[0];
+    firstKey = Object.keys(chartData)[1]; 
+    chartData[zeroethKey].unshift(zeroethKey);
+    chartData[firstKey].unshift(firstKey);
+    columnss = chartData[zeroethKey].slice(1,21);
+    dataa = chartData[firstKey].slice(0,21);
     var str = firstKey;
     var chart = c3.generate({
         bindto: chartID,
@@ -273,14 +278,14 @@ function createChartBar(barChartData, chartID){
     });
 }
 
-function downloadCSVBar(barChartData){
+function downloadCSVBar(chartData){
     //barChartData.departments.unshift('departments');
     // Shape the data into an acceptable format for parsing
     var overall = [];
-    zeroethKey = Object.keys(barChartData)[0];
-    firstKey = Object.keys(barChartData)[1]; 
-    for(var i = 0; i < barChartData[zeroethKey].length; i++){
-        overall.push([barChartData[zeroethKey][i], barChartData[firstKey][i]]);
+    zeroethKey = Object.keys(chartData)[0];
+    firstKey = Object.keys(chartData)[1]; 
+    for(var i = 0; i < chartData[zeroethKey].length; i++){
+        overall.push([chartData[zeroethKey][i], chartData[firstKey][i]]);
     }
     // Construct the CSV string and start download
     var csv_data = Papa.unparse(overall);
