@@ -78,7 +78,7 @@ function main(num) {
     // x = prepareTableDataLine(time);
     // createTable(x);
     x = prepareTableDataLine(time);
-    createTable(x, '#theTable'.concat(String(num)));
+    createTable(x, '#theTable'.concat(String(num)), "Date");
     createChart(time, '#chart'.concat(String(num)));
 }    
 
@@ -105,7 +105,7 @@ function prepareTableDataLine(timeFrame){
     return dataSet;
 }
 
-function createTable(tableData, tableID){
+function createTable(tableData, tableID, metric){
     if ( $.fn.dataTable.isDataTable( tableID ) ) { //check if this is already a datatable
         $(tableID).DataTable().clear();              //clear its data
         $(tableID).dataTable().fnAddData(tableData);     //populate it with a new set of data
@@ -118,7 +118,7 @@ function createTable(tableData, tableID){
                 //     { "width": "20%", "targets": 0 }
                 // ],
                 columns: [
-                    { title: "Date" },
+                    { title: metric },
                     { title: "Value" },
                 ],
                 "scrollY": "300px",     //scroll function and the default size of the table
@@ -212,7 +212,7 @@ $.ajax({
         barChartData1 = d;
         x = prepareTableDataBar(d);
         createChartBar(d, barChart1);
-        createTable(x, '#test1');
+        createTable(x, '#test1', "Department");
     }
 });
 
@@ -223,7 +223,7 @@ $.ajax({
         barChartData2 = d;
         x = prepareTableDataBar2(d);
         createChartBar(d, barChart2);
-        createTable(x, '#test2');
+        createTable(x, '#test2', "Title");
     }
 });
         
