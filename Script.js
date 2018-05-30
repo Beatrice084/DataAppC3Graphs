@@ -1,11 +1,15 @@
-var time = 'monthly';
+var time1 = 'monthly';
+var time2 = 'monthly';
 
-var chartData;  //var to store data from the json file
+var chartData1;  //var to store data from the json file
+var chartData2;
+
 $.ajax({
     dataType: "json",
     url: 'lineChartData1.json',
     success: function(data){
-        main(data, time, 1);
+        chartData1 = data;
+        main(1);
     }
 });
 
@@ -13,37 +17,63 @@ $.ajax({
     dataType: "json",
     url: 'lineChartData2.json',
     success: function(data){
-        main(data, time, 2);
+        chartData2 = data;
+        main(2);
     }
 });
 
-document.getElementById("monthly").addEventListener("click", function(){
-    time = 'monthly';
-    main(chartData, time);
+document.getElementById("monthly1").addEventListener("click", function(){
+    time1 = 'monthly';
+    main(1);
 });
 
-document.getElementById("daily").addEventListener("click", function(){
-    time = 'daily';
-    main(chartData, time);
+document.getElementById("daily1").addEventListener("click", function(){
+    time1 = 'daily';
+    main(1);
 });
 
-document.getElementById("DownloadCSVLine").addEventListener("click", function(){
-    if (time == 'monthly') {    //time is changed based on the last button clicked
-        time = chartData.monthly;
+document.getElementById("monthly2").addEventListener("click", function(){
+    time2 = 'monthly';
+    main(2);
+});
+
+document.getElementById("daily2").addEventListener("click", function(){
+    time2 = 'daily';
+    main(2);
+});
+
+document.getElementById("DownloadCSVLine1").addEventListener("click", function(){
+    if (time1 == 'monthly') {    //time is changed based on the last button clicked
+        time = chartData1.monthly;
     }
-    else if(time == 'daily') {
-        time = chartData.daily;
+    else if(time1 == 'daily') {
+        time = chartData1.daily;
     }
     downloadCSVLine(time);
 });
 
-function main(data, time, num) {
-    chartData = data;
-    if (time == 'monthly') {    //time is changed based on the last button clicked
-        time = chartData.monthly;
+document.getElementById("DownloadCSVLine2").addEventListener("click", function(){
+    if (time2 == 'monthly') {    //time is changed based on the last button clicked
+        time = chartData2.monthly;
     }
-    else if(time == 'daily') {
-        time = chartData.daily;
+    else if(time2 == 'daily') {
+        time = chartData2.daily;
+    }
+    downloadCSVLine(time);
+});
+
+function main(num) {
+    if (time1 == 'monthly' && num==1) {    //time is changed based on the last button clicked
+        time = chartData1.monthly;
+    }
+    else if(time1 == 'daily' && num==1) {
+        time = chartData1.daily;
+    }
+    else if (time2 == 'monthly' && num==2) {  
+        time = chartData2.monthly;
+    }
+    else if (time2 == 'daily' && num==2) {
+        time = chartData2.daily;
     }
     // x = prepareTableDataLine(time);
     // createTable(x);
