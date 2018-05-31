@@ -196,6 +196,9 @@ function downloadCSVLine(timeFrame){
 var barChartData1;
 var barChartData2;
 //var titles=["Departments", "Members"]; 
+//var columnColors = [rgb(31, 119, 180), rgb(255, 127, 14), rgb(44, 160, 44), rgb(214, 39, 40), rgb(148, 103, 189), rgb(140, 86, 75), rgb(227, 119, 194), rgb(127, 127, 127), rgb(188, 189, 34), rgb(23, 190, 207)];
+var columnColors = ['rgb(31, 119, 180)', 'rgb(255, 127, 14)', 'rgb(44, 160, 44)', 'rgb(214, 39, 40)', 'rgb(148, 103, 189)', 'rgb(140, 86, 75)', 'rgb(227, 119, 194)', 'rgb(127, 127, 127)', 'rgb(188, 189, 34)', 'rgb(23, 190, 207)'];
+
         
 document.getElementById("DownloadCSVBar1").addEventListener("click", function(){
     downloadCSVBar(barChartData1);
