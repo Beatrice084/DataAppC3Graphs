@@ -181,6 +181,10 @@ function createChartLine(timeFrame, chartID){
                     format: '%Y-%m-%d'
                     }
                 }
+            },
+            onrendered: function() {
+                d3.selectAll(".c3-axis.c3-axis-x .tick text")
+                    .style("display", "none");
             }
         });
     }
