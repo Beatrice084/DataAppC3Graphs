@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.css"> 
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.js"></script>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.2.1/jszip-2.5.0/dt-1.10.16/b-1.5.1/b-colvis-1.5.1/b-flash-1.5.1/b-html5-1.5.1/b-print-1.5.1/cr-1.4.1/fc-3.2.4/fh-3.1.3/kt-2.3.2/r-2.2.1/rr-1.2.3/sc-1.4.4/sl-1.2.5/datatables.min.css"/>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.2.1/jszip-2.5.0/dt-1.10.16/b-1.5.1/b-colvis-1.5.1/b-flash-1.5.1/b-html5-1.5.1/b-print-1.5.1/cr-1.4.1/fc-3.2.4/fh-3.1.3/kt-2.3.2/r-2.2.1/rr-1.2.3/sc-1.4.4/sl-1.2.5/datatables.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.4.0/papaparse.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/downloadjs/1.4.7/download.min.js"></script>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.css"> 
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.2.1/jszip-2.5.0/dt-1.10.16/b-1.5.1/b-colvis-1.5.1/b-flash-1.5.1/b-html5-1.5.1/b-print-1.5.1/cr-1.4.1/fc-3.2.4/fh-3.1.3/kt-2.3.2/r-2.2.1/rr-1.2.3/sc-1.4.4/sl-1.2.5/datatables.min.css"/>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.2.1/jszip-2.5.0/dt-1.10.16/b-1.5.1/b-colvis-1.5.1/b-flash-1.5.1/b-html5-1.5.1/b-print-1.5.1/cr-1.4.1/fc-3.2.4/fh-3.1.3/kt-2.3.2/r-2.2.1/rr-1.2.3/sc-1.4.4/sl-1.2.5/datatables.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.4.0/papaparse.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/downloadjs/1.4.7/download.min.js"></script>
+    </head>
 
-</head>
-<body>
-    <div id="root">
+    <body>
+        <div id="root">
             <div class="App" style="background-color: rgb(249, 249, 249); height: 100%; max-width: 100%;">
                 <div style="height: 15px; width: 1px;"></div>
                 <div style="max-width: 1200px; margin: 0px auto;">
@@ -27,11 +27,10 @@
                         <div class="App-intro" style="box-shadow: rgba(0, 0, 0, 0.31) 0px -1px 80px -4px;">
                             <!–– purple title bar ––>
                             <div class="title-bar">
-                                    <h1 style="font-family: Helvetica, Arial, sans-serif; text-shadow: rgb(85, 85, 85) 2px 2px; background-color: rgb(70, 36, 106); color: white; border-top-left-radius: 5px; border-top-right-radius: 5px;">
-                                        <strong>GC</strong>collab Group Stats Page</h1>
+                                <h1 style="font-family: Helvetica, Arial, sans-serif; text-shadow: rgb(85, 85, 85) 2px 2px; background-color: rgb(70, 36, 106); color: white; border-top-left-radius: 5px; border-top-right-radius: 5px;">
+                                    <strong>GC</strong>collab Group Stats Page</h1>
                             </div>
                             <!–– calendar and enter URL ––>
- 
                             <div style="height: 50px; width: 95%; margin: 10px auto 5px;">
                                 <div style="float: left; display: inline; width: 410px; padding-top: 5px; vertical-align: middle;">
                                     <span style="vertical-align: middle;">
@@ -63,18 +62,18 @@
                                 </div>
                             </div>
                             <script type="text/javascript" src="browserDetect.js"></script>
-                                <!–– white box around 4 graphs ––>
-                                <div class="">
-                                    <div style="margin: 0px auto; background-color: rgb(255, 255, 255); border: 2px solid lightgray; border-radius: 5px; width: 95%;">
-                                        <div class="pageviews" style="width: 100%;">
-                                <!-- end white box around 4 graphs -->
-                                    <!–– box around indivial graph ––>
-                                    <div class="ui segment ind-content-box" style="margin-top: 10px; margin-left: 10px; margin-right: 10px; display: inline-block; width: 98%; border-radius: 5px; background-color: rgb(249, 249, 249); border: 2px solid lightgray;">
-                                        <!–– lineChartData1 ––>
-                                        <button type="button" id="monthly1">Monthly</button>
-                                        <button type="button" id="daily1">Daily</button>
-                                        <p style="display: inline-block;">Page views</p>
-                                        <button id="DownloadCSVLine1" tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 0px; font-weight: inherit; position: relative; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 40px; height: 40px; background: none;">
+                            <!–– white box around 4 graphs ––>
+                            <div class="">
+                                <div style="margin: 0px auto; background-color: rgb(255, 255, 255); border: 2px solid lightgray; border-radius: 5px; width: 95%;">
+                                    <div class="pageviews" style="width: 100%;">
+                                        <!-- end white box around 4 graphs -->
+                                        <!–– box around indivial graph ––>
+                                        <div class="ui segment ind-content-box" style="margin-top: 10px; margin-left: 10px; margin-right: 10px; display: inline-block; width: 98%; border-radius: 5px; background-color: rgb(249, 249, 249); border: 2px solid lightgray;">
+                                            <!–– lineChartData1 ––>
+                                            <button type="button" id="monthly1">Monthly</button>
+                                            <button type="button" id="daily1">Daily</button>
+                                            <p style="display: inline-block;">Page views</p>
+                                            <button id="DownloadCSVLine1" tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 0px; font-weight: inherit; position: relative; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 40px; height: 40px; background: none;">
                                                 <div>
                                                     <div style="position: absolute; font-family: Roboto, sans-serif; font-size: 10px; line-height: 22px; padding: 0px 8px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -34.5px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;">
                                                         <div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div>
@@ -85,19 +84,21 @@
                                                     </svg>
                                                 </div>
                                             </button>
-                                        <div id="container">
-                                            <div id = "chart1" style="display: inline-block; width: 475px; height: 100px; padding: 5px"></div>
-                                            <div id = "spacing" style="display: inline-block; width: 10%; height: 100px;"></div>
-                                            <div id = "table1" style="display: inline-block; width: 475px; height: 100px;"><table id="theTable1" class="display"></table></div>
+                                            <div id="container">
+                                                <div id = "chart1" style="display: inline-block; width: 475px; height: 100px; padding: 5px"></div>
+                                                <div id = "spacing" style="display: inline-block; width: 10%; height: 100px;"></div>
+                                                <div id = "table1" style="display: inline-block; width: 475px; height: 100px;">
+                                                    <table id="theTable1" class="display"></table>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <!–– box around indivial graph ––>
-                                    <div class="ui segment ind-content-box" style="margin-top: 10px; margin-left: 10px; margin-right: 10px; display: inline-block; width: 98%; border-radius: 5px; background-color: rgb(249, 249, 249); border: 2px solid lightgray;">
-                                    <!–– lineChartData2 ––>
-                                        <button type="button" id="monthly2">Monthly</button>
-                                        <button type="button" id="daily2">Daily</button>
-                                        <p style="display: inline-block;">Group Membership</p>
-                                        <button id="DownloadCSVLine2" tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 0px; font-weight: inherit; position: relative; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 40px; height: 40px; background: none;">
+                                        <!–– box around indivial graph ––>
+                                        <div class="ui segment ind-content-box" style="margin-top: 10px; margin-left: 10px; margin-right: 10px; display: inline-block; width: 98%; border-radius: 5px; background-color: rgb(249, 249, 249); border: 2px solid lightgray;">
+                                            <!–– lineChartData2 ––>
+                                            <button type="button" id="monthly2">Monthly</button>
+                                            <button type="button" id="daily2">Daily</button>
+                                            <p style="display: inline-block;">Group Membership</p>
+                                            <button id="DownloadCSVLine2" tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 0px; font-weight: inherit; position: relative; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 40px; height: 40px; background: none;">
                                                 <div>
                                                     <div style="position: absolute; font-family: Roboto, sans-serif; font-size: 10px; line-height: 22px; padding: 0px 8px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -34.5px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;">
                                                         <div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div>
@@ -108,39 +109,20 @@
                                                     </svg>
                                                 </div>
                                             </button>
-                                        <div id="container">
-                                            <div id = "chart2" style="display: inline-block; width: 475px; height: 200px; padding: 5px"></div>
-                                            <div id = "spacing" style="display: inline-block; width: 10%; height: 200px;"></div>
-                                            <div id = "table2" style="display: inline-block; width: 475px;"><table id="theTable2" class="display"></table></div>
-                                        </div>
-                                    </div>
-                                    <!–– box around indivial graph ––>
-                                    <div class="ui segment ind-content-box" style="margin-top: 10px; margin-left: 10px; margin-right: 10px; display: inline-block; width: 98%; border-radius: 5px; background-color: rgb(249, 249, 249); border: 2px solid lightgray;">
-                                    <!–– BarChartData1 ––>
-                                        <div>
-                                            <p style = "display: inline-block;">Group Members by Department</p>
-                                            <button id="DownloadCSVBar1" tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 0px; font-weight: inherit; position: relative; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 40px; height: 40px; background: none;">
-                                                <div>
-                                                    <div style="position: absolute; font-family: Roboto, sans-serif; font-size: 10px; line-height: 22px; padding: 0px 8px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -34.5px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;">
-                                                        <div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div>
-                                                        <span style="position: relative; white-space: nowrap;">Download data as CSV</span>
-                                                    </div>
-                                                    <svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;">
-                                                        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path>
-                                                    </svg>
+                                            <div id="container">
+                                                <div id = "chart2" style="display: inline-block; width: 475px; height: 200px; padding: 5px"></div>
+                                                <div id = "spacing" style="display: inline-block; width: 10%; height: 200px;"></div>
+                                                <div id = "table2" style="display: inline-block; width: 475px;">
+                                                    <table id="theTable2" class="display"></table>
                                                 </div>
-                                            </button>
+                                            </div>
                                         </div>
-                                        <div id="barChart1" style="display: inline-block; width: 450px; height: 200px; padding: 5px"></div>
-                                        <div id = "spacing" style="display: inline-block; width: 10%; height: 200px;"></div>
-                                        <div style="display: inline-block; width: 475px;"><table id="test1" class="display"></table></div>
-                                    </div>
-                                    <!–– box around indivial graph ––>
-                                    <div class="ui segment ind-content-box" style="margin-top: 10px; margin-left: 10px; margin-right: 10px; margin-bottom: 10px; display: inline-block; width: 98%; border-radius: 5px; background-color: rgb(249, 249, 249); border: 2px solid lightgray;">
-                                        <!–– BarChartData2 ––>
-                                        <div>
-                                            <p style = "display: inline-block;">Top Group Content</p>
-                                            <button id="DownloadCSVBar2" tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 0px; font-weight: inherit; position: relative; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 40px; height: 40px; background: none;">
+                                        <!–– box around indivial graph ––>
+                                        <div class="ui segment ind-content-box" style="margin-top: 10px; margin-left: 10px; margin-right: 10px; display: inline-block; width: 98%; border-radius: 5px; background-color: rgb(249, 249, 249); border: 2px solid lightgray;">
+                                            <!–– BarChartData1 ––>
+                                            <div>
+                                                <p style = "display: inline-block;">Group Members by Department</p>
+                                                <button id="DownloadCSVBar1" tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 0px; font-weight: inherit; position: relative; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 40px; height: 40px; background: none;">
                                                     <div>
                                                         <div style="position: absolute; font-family: Roboto, sans-serif; font-size: 10px; line-height: 22px; padding: 0px 8px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -34.5px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;">
                                                             <div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div>
@@ -151,10 +133,36 @@
                                                         </svg>
                                                     </div>
                                                 </button>
+                                            </div>
+                                            <div id="barChart1" style="display: inline-block; width: 450px; height: 200px; padding: 5px"></div>
+                                            <div id = "spacing" style="display: inline-block; width: 10%; height: 200px;"></div>
+                                            <div style="display: inline-block; width: 475px;">
+                                                <table id="test1" class="display"></table>
+                                            </div>
                                         </div>
-                                        <div id="barChart2" style="display: inline-block; width: 450px; height: 200px; padding: 5px"></div>
-                                        <div id = "spacing" style="display: inline-block; width: 10%; height: 200px;"></div>
-                                        <div style="display: inline-block; width: 475px;"><table id="test2" class="display"></table></div>
+                                        <!–– box around indivial graph ––>
+                                        <div class="ui segment ind-content-box" style="margin-top: 10px; margin-left: 10px; margin-right: 10px; margin-bottom: 10px; display: inline-block; width: 98%; border-radius: 5px; background-color: rgb(249, 249, 249); border: 2px solid lightgray;">
+                                            <!–– BarChartData2 ––>
+                                            <div>
+                                                <p style = "display: inline-block;">Top Group Content</p>
+                                                <button id="DownloadCSVBar2" tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 0px; font-weight: inherit; position: relative; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 40px; height: 40px; background: none;">
+                                                    <div>
+                                                        <div style="position: absolute; font-family: Roboto, sans-serif; font-size: 10px; line-height: 22px; padding: 0px 8px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -34.5px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;">
+                                                            <div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div>
+                                                            <span style="position: relative; white-space: nowrap;">Download data as CSV</span>
+                                                        </div>
+                                                        <svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;">
+                                                            <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path>
+                                                        </svg>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                            <div id="barChart2" style="display: inline-block; width: 450px; height: 200px; padding: 5px"></div>
+                                            <div id = "spacing" style="display: inline-block; width: 10%; height: 200px;"></div>
+                                            <div style="display: inline-block; width: 475px;">
+                                                <table id="test2" class="display"></table>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -163,7 +171,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <script src="Script.js"></script>
-</body>
+        <script src="Script.js"></script>
+    </body>
 </html>
