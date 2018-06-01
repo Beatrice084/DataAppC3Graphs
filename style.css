@@ -1,7 +1,183 @@
-#chart1 {
-    margin: '0 auto';
-    background-color: '#fff';
-    border: '50px solid lightgray';
-    border-radius: '5px';
-    width: '95%';
+.App{
+    background-color: rgb(249, 249, 249); 
+    height: 100%; 
+    max-width: 100%;
+}
+.div1{
+    height: 15px; 
+    width: 1px;
+}
+.div2{
+    max-width: 1200px; 
+    margin: 0px auto;
+}
+.ui-container{
+    background-color: rgb(243, 243, 243); 
+    border-radius: 5px;
+}
+.App-intro{
+    box-shadow: rgba(0, 0, 0, 0.31) 0px -1px 80px -4px;
+}
+.h11{
+    font-family: Helvetica, Arial, sans-serif; 
+    text-shadow: rgb(85, 85, 85) 2px 2px; 
+    background-color: rgb(70, 36, 106); 
+    color: white; 
+    border-top-left-radius: 5px; 
+    border-top-right-radius: 5px;
+}
+.div3{
+    height: 50px; 
+    width: 95%; 
+    margin: 10px auto 5px;
+}
+.div4{
+    float: left; 
+    display: inline; 
+    width: 410px; 
+    padding-top: 5px; 
+    vertical-align: middle;
+}
+.span1{
+    vertical-align: middle;
+}
+.react-datepicker-component-my-react-component{
+    width: 200px; 
+    float: left;
+}
+.react-flex-view-align-content-center-button-wrapper{
+    flex: 0 1 auto;
+}
+.react-flex-view-input-button{
+    flex: 0 0 auto;
+}
+.react-datepicker-component-my-react-component-11{
+    width: 200px; 
+    float: right;
+}
+.react-flex-view-align-content-center-button-wrapper{
+    flex: 0 1 auto;
+}
+.react-flex-view-input-button{
+    flex: 0 0 auto;
+}
+.white-box{
+    margin: 0px auto; 
+    background-color: rgb(255, 255, 255); 
+    border: 2px solid lightgray; 
+    border-radius: 5px; 
+    width: 95%;
+}
+.ui-segment-ind-content-box{
+    margin-top: 10px; 
+    margin-left: 10px; 
+    margin-right: 10px; 
+    display: inline-block; 
+    width: 98%; 
+    border-radius: 5px; 
+    background-color: rgb(249, 249, 249); 
+    border: 2px solid lightgray;
+}
+.ui-segment-ind-content-box-final{
+    margin-top: 10px; 
+    margin-left: 10px; 
+    margin-right: 10px; 
+    display: inline-block; 
+    width: 98%; 
+    border-radius: 5px; 
+    background-color: rgb(249, 249, 249); 
+    border: 2px solid lightgray;
+    margin-bottom: 10px;
+}
+.title{
+    display: inline-block; margin-left: 20px;
+}
+.csv-button{
+    border: 10px; 
+    box-sizing: border-box; 
+    display: inline-block; 
+    font-family: Roboto, sans-serif; 
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0); 
+    cursor: pointer; 
+    text-decoration: none; 
+    margin: 0px; 
+    padding: 0px; 
+    outline: none; 
+    font-size: 0px; 
+    font-weight: inherit; 
+    position: relative; 
+    overflow: visible; 
+    transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; 
+    width: 40px; 
+    height: 40px; 
+    background: none;
+}
+select.ui.dropdown{
+    float: right; 
+    margin-top: 10px; 
+    margin-right: 20px;
+}
+.chart{
+    display: inline-block; 
+    width: 475px; 
+    height: 200px; 
+    padding: 5px
+}
+.spacing{
+    display: inline-block; 
+    width: 10%; 
+    height: 200px;
+}
+.table{
+    display: inline-block; 
+    width: 475px; 
+    height: 200px;
+}
+div.ui.action.input{
+    float: right; 
+    width: 500px;
+}
+.pageviews{
+    width: 100%;    
+}
+.div1button{
+    position: absolute;
+    font-family: Roboto, sans-serif; 
+    font-size: 10px; 
+    line-height: 22px; 
+    padding: 0px 8px; 
+    z-index: 3000; 
+    color: rgb(255, 255, 255); 
+    overflow: hidden; 
+    top: -10000px; 
+    border-radius: 2px; 
+    user-select: none; 
+    opacity: 0; 
+    left: -34.5px; 
+    transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; 
+    box-sizing: border-box;
+}
+.div2button{
+    position: absolute; 
+    left: 50%; 
+    top: 0px; 
+    transform: translate(-50%, -50%); 
+    border-radius: 50%; 
+    background-color: transparent; 
+    transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; 
+    width: 0px; 
+    height: 0px;
+}
+.stylebutton{
+    position: relative; 
+    white-space: nowrap;
+}
+.svgButton{
+    display: inline-block; 
+    color: rgba(0, 0, 0, 0.87); 
+    fill: currentcolor; 
+    height: 24px; 
+    width: 24px; 
+    user-select: none; 
+    transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
 }
