@@ -121,7 +121,7 @@ function createTable(tableData, tableID, metric){
                     { title: metric },
                     { title: "Value" },
                 ],
-                "scrollY": "300px",     //scroll function and the default size of the table
+                "scrollY": "200px",     //scroll function and the default size of the table
                 "searching": false,     //disabled the search function
                 "paging":   false,      //disabled paging
                 scrollCollapse: true, //shortens the height of the table if there isnt much data to fill up its height
@@ -149,7 +149,7 @@ function createChart(timeFrame, chartID){
     var chart = c3.generate({
             bindto: chartID,
             size: {
-                height: 300,    //size set same the datatable
+                height: 200,    //size set same the datatable
                 //width: 480    //default size is full width of page
             },
             data: {
