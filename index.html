@@ -17,89 +17,51 @@
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/components/input.min.css">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/components/dropdown.min.css"/>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/components/dropdown.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css"/>
     </head>
     <body>
-        
-        <!-- <div class="ui segment">
-            <div class="ui active inverted dimmer">
-                <div class="ui text loader">Loading</div>
-            </div>
-            <p></p>
-        </div> -->
-        <!-- <div class="ui segment">
-            <div class="ui disabled loader"></div>
-            <p>r4usrtjrt</p>
-          </div> -->
         <div id="root">
-            <div class="App" style="background-color: rgb(249, 249, 249); height: 100%; max-width: 100%;">
-                <div style="height: 15px; width: 1px;"></div>
-                <div style="max-width: 1200px; margin: 0px auto;">
-                    <div class="ui container" style="background-color: rgb(243, 243, 243); border-radius: 5px;">
+            <div class="App" id="App">
+                <div class="div1" id="div1"></div>
+                <div class="div2">
+                    <div class="ui-container">
                         <header>
                             <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
                         </header>
-                        <div class="App-intro" style="box-shadow: rgba(0, 0, 0, 0.31) 0px -1px 80px -4px;">
+                        <div class="App-intro">
                             <!–– purple title bar ––>
                             <div class="title-bar">
-                                <h1 style="font-family: Helvetica, Arial, sans-serif; text-shadow: rgb(85, 85, 85) 2px 2px; background-color: rgb(70, 36, 106); color: white; border-top-left-radius: 5px; border-top-right-radius: 5px;">
+                                <h1 class="h11">
                                     <strong>GC</strong>collab Group Stats Page</h1>
                             </div>
                             <!–– calendar and enter URL ––>
-                            <div class="control-group">
-                                    <div class="date-pickers">
-                                        <span style="vertical-align: middle;">
-                                            <!-- insert datepickers here. Semantic ui maybe? -->
-                                            <div class="ui form">
-                                                <div class="two fields">
-                                                    <div class="field">
-                                                        <label>Start Date</label>
-                                                        <div class="ui calendar" id="rangestart">
-                                                            <div class="ui input left icon">
-                                                                <i class="calendar icon"></i>
-                                                                <input type="text" placeholder="Start">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="field">
-                                                        <label>End Date</label>
-                                                        <div class="ui calendar" id="rangeend">
-                                                            <div class="ui input left icon">
-                                                                <i class="calendar icon"></i>
-                                                                <input type="text" placeholder="End">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </span>
-                                    </div>
-                                </div>
-                            <div style="height: 50px; width: 95%; margin: 10px auto 5px;">
-                                <!-- <div style="float: left; display: inline; width: 410px; padding-top: 5px; vertical-align: middle;">
-                                    <span style="vertical-align: middle;">
-                                        <div class="class="ui form"" style="width: 200px; float: left;">
+                            <div class = "div3">
+                                <div class = "div4">
+                                    <span class = "span1">
+                                        <div class="react-datepicker-component-my-react-component">
                                             <div class="react-datepicker-input has-value">
                                                 <input placeholder="Start Date" value="30/05/2017">
-                                                <div class="ui calendar" style="flex: 0 1 auto;" id="rangeend">
-                                                    <div class="ui input left icon" style="flex: 0 0 auto;">
+                                                <div class="react-flex-view-align-content-center-button-wrapper">
+                                                    <div class="react-flex-view-input-button">
                                                         <i class="calendar icon"></i>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="react-datepicker-component my-react-component" style="width: 200px; float: right;">
+                                        <div class="react-datepicker-component-my-react-component-1">
                                             <div class="react-datepicker-input has-value">
                                                 <input placeholder="End Date" value="30/05/2018">
-                                                <div class="react-flex-view align-content-center button-wrapper" style="flex: 0 1 auto;">
-                                                    <div class="react-flex-view input-button" style="flex: 0 0 auto;">
+                                                <div class="react-flex-view-align-content-center-button-wrapper">
+                                                    <div class="react-flex-view-input-button">
                                                         <i class="calendar icon"></i>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </span>
-                                </div> -->
-                                <div class="ui action input" style="float: right; width: 500px;">
+                                </div>
+                                <div class="ui action input">
                                     <input placeholder="Paste group URL here..." type="text">
                                     <button class="ui button" role="button">Get stats</button>
                                 </div>
@@ -107,109 +69,109 @@
                             <script type="text/javascript" src="browserDetect.js"></script>
                             <!–– white box around 4 graphs ––>
                             <div class="">
-                                <div style="margin: 0px auto; background-color: rgb(255, 255, 255); border: 2px solid lightgray; border-radius: 5px; width: 95%;">
-                                    <div class="pageviews" style="width: 100%;">
+                                <div class="white-box">
+                                    <div class="pageviews">
                                         <!-- end white box around 4 graphs -->
                                         <!–– box around indivial graph ––>
-                                        <div class="ui segment ind-content-box" style="margin-top: 10px; margin-left: 10px; margin-right: 10px; display: inline-block; width: 98%; border-radius: 5px; background-color: rgb(249, 249, 249); border: 2px solid lightgray;">
+                                        <div class="ui-segment-ind-content-box">
                                             <!–– lineChartData1 ––>
-                                            <p style="display: inline-block; margin-left: 20px;">Page views</p>
-                                            <button id="DownloadCSVLine1" tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 0px; font-weight: inherit; position: relative; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 40px; height: 40px; background: none;">
+                                            <p class = "title">Page views</p>
+                                            <button class = "csv-button" id="DownloadCSVLine1" tabindex="0" type="button">
                                                 <div>
-                                                    <div style="position: absolute; font-family: Roboto, sans-serif; font-size: 10px; line-height: 22px; padding: 0px 8px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -34.5px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;">
-                                                        <div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div>
-                                                        <span style="position: relative; white-space: nowrap;">Download data as CSV</span>
+                                                    <div class = "div1button">
+                                                        <div class="div2button"></div>
+                                                        <span class"sytlebutton">Download data as CSV</span>
                                                     </div>
-                                                    <svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;">
+                                                    <svg class="svgButton" viewBox="0 0 24 24">
                                                         <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path>
                                                     </svg>
                                                 </div>
                                             </button>
                                             <!-- Montly/daily dropdown-->
-                                            <select class="ui dropdown" id="select" style="float: right; margin-top: 10px; margin-right: 20px;">
+                                            <select class="ui dropdown" id="select">
                                                     <option value="monthly1" selected>Monthly</option>
                                                     <option value="daily1">Daily</option>  
                                             </select>
                                             <!-- End Montly/daily dropdown-->  
                                                     
                                             <div id="container">
-                                                <div id = "chart1" style="display: inline-block; width: 475px; height: 100px; padding: 5px"></div>
-                                                <div id = "spacing" style="display: inline-block; width: 10%; height: 100px;"></div>
-                                                <div id = "table1" style="display: inline-block; width: 475px; height: 100px;"><table id="theTable1" class="display"></table></div>
+                                                <div class="chart" id = "chart1"></div>
+                                                <div class="spacing" id = "spacing"></div>
+                                                <div class="table" id = "table1"><table id="theTable1" class="display"></table></div>
                                             </div>
                                         </div>
                                         <!–– box around indivial graph ––>
-                                        <div class="ui segment ind-content-box" style="margin-top: 10px; margin-left: 10px; margin-right: 10px; display: inline-block; width: 98%; border-radius: 5px; background-color: rgb(249, 249, 249); border: 2px solid lightgray;">
+                                        <div class="ui-segment-ind-content-box">
                                             <!–– lineChartData1 ––>
-                                            <p style="display: inline-block; margin-left: 20px;">Group Membership</p>
-                                            <button id="DownloadCSVLine2" tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 0px; font-weight: inherit; position: relative; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 40px; height: 40px; background: none;">
+                                            <p class = "title">Group Membership</p>
+                                            <button class = "csv-button" id="DownloadCSVLine2" tabindex="0" type="button">
                                                 <div>
-                                                    <div style="position: absolute; font-family: Roboto, sans-serif; font-size: 10px; line-height: 22px; padding: 0px 8px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -34.5px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;">
-                                                        <div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div>
-                                                        <span style="position: relative; white-space: nowrap;">Download data as CSV</span>
+                                                    <div class = "div1button">
+                                                        <div class="div2button"></div>
+                                                        <span class="sytlebutton">Download data as CSV</span>
                                                     </div>
-                                                    <svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;">
+                                                    <svg class="svgButton" viewBox="0 0 24 24">
                                                         <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path>
                                                     </svg>
                                                 </div>
                                             </button>
                                             <!-- Montly/daily dropdown-->
-                                            <select class="ui dropdown" id="select2" style="float: right; margin-top: 10px; margin-right: 20px;">
+                                            <select class="ui dropdown" id="select2">
                                                     <option value="monthly2" selected>Monthly</option>
                                                     <option value="daily2">Daily</option>  
                                             </select>
                                             <!-- End Montly/daily dropdown-->        
                                             <div id="container">
-                                                <div id = "chart2" style="display: inline-block; width: 475px; height: 200px; padding: 5px"></div>
-                                                <div id = "spacing" style="display: inline-block; width: 10%; height: 200px;"></div>
-                                                <div id = "table2" style="display: inline-block; width: 475px;">
+                                                <div class="chart" id = "chart2"></div>
+                                                <div class="spacing" id = "spacing"></div>
+                                                <div class="table" id = "table2">
                                                     <table id="theTable2" class="display"></table>
                                                 </div>
                                             </div>
                                         </div>
                                         <!–– box around indivial graph ––>
-                                        <div class="ui segment ind-content-box" style="margin-top: 10px; margin-left: 10px; margin-right: 10px; display: inline-block; width: 98%; border-radius: 5px; background-color: rgb(249, 249, 249); border: 2px solid lightgray;">
+                                        <div class="ui-segment-ind-content-box">
                                             <!–– BarChartData1 ––>
                                             <div>
-                                                <p style = "display: inline-block; margin-left: 20px;">Group Members by Department</p>
-                                                <button id="DownloadCSVBar1" tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 0px; font-weight: inherit; position: relative; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 40px; height: 40px; background: none;">
+                                                <p class = "title">Group Members by Department</p>
+                                                <button class = "csv-button" id="DownloadCSVBar1" tabindex="0" type="button">
                                                     <div>
-                                                        <div style="position: absolute; font-family: Roboto, sans-serif; font-size: 10px; line-height: 22px; padding: 0px 8px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -34.5px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;">
-                                                            <div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div>
-                                                            <span style="position: relative; white-space: nowrap;">Download data as CSV</span>
+                                                        <div class = "div1button">
+                                                            <div class="div2button"></div>
+                                                            <span class="sytlebutton">Download data as CSV</span>
                                                         </div>
-                                                        <svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;">
+                                                        <svg class="svgButton" viewBox="0 0 24 24">
                                                             <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path>
                                                         </svg>
                                                     </div>
                                                 </button>
                                             </div>
-                                            <div id="barChart1" style="display: inline-block; width: 450px; height: 200px; padding: 5px"></div>
-                                            <div id = "spacing" style="display: inline-block; width: 10%; height: 200px;"></div>
-                                            <div style="display: inline-block; width: 475px;">
+                                            <div class="chart" id="barChart1"></div>
+                                            <div class="spacing" id = "spacing"></div>
+                                            <div class="table">
                                                 <table id="test1" class="display"></table>
                                             </div>
                                         </div>
                                         <!–– box around indivial graph ––>
-                                        <div class="ui segment ind-content-box" style="margin-top: 10px; margin-left: 10px; margin-right: 10px; margin-bottom: 10px; display: inline-block; width: 98%; border-radius: 5px; background-color: rgb(249, 249, 249); border: 2px solid lightgray;">
+                                        <div class="ui-segment-ind-content-box-final">
                                             <!–– BarChartData2 ––>
                                             <div>
-                                                <p style = "display: inline-block; margin-left: 20px;">Top Group Content</p>
-                                                <button id="DownloadCSVBar2" tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 0px; font-weight: inherit; position: relative; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 40px; height: 40px; background: none;">
+                                                <p class = "title">Top Group Content</p>
+                                                <button class = "csv-button" id="DownloadCSVBar2" tabindex="0" type="button">
                                                     <div>
-                                                        <div style="position: absolute; font-family: Roboto, sans-serif; font-size: 10px; line-height: 22px; padding: 0px 8px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -34.5px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;">
-                                                            <div style="position: absolute; left: 50%; top: 0px; transform: translate(-50%, -50%); border-radius: 50%; background-color: transparent; transition: width 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, height 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, backgroundColor 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 0px; height: 0px;"></div>
-                                                            <span style="position: relative; white-space: nowrap;">Download data as CSV</span>
+                                                        <div class = "div1button">
+                                                            <div class="div2button"></div>
+                                                            <span class="sytlebutton">Download data as CSV</span>
                                                         </div>
-                                                        <svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: currentcolor; height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;">
+                                                        <svg class="svgButton" viewBox="0 0 24 24">
                                                             <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path>
                                                         </svg>
                                                     </div>
                                                 </button>
                                             </div>
-                                            <div id="barChart2" style="display: inline-block; width: 450px; height: 200px; padding: 5px"></div>
-                                            <div id = "spacing" style="display: inline-block; width: 10%; height: 200px;"></div>
-                                            <div style="display: inline-block; width: 475px;">
+                                            <div class="chart" id="barChart2"></div>
+                                            <div class="spacing" id = "spacing"></div>
+                                            <div class="table">
                                                 <table id="test2" class="display"></table>
                                             </div>
                                         </div>
