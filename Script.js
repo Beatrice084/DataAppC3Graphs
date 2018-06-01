@@ -22,15 +22,19 @@ $.ajax({
     }
 });
 
-document.getElementById("monthly1").addEventListener("click", function(){
-    time1 = 'monthly';
-    main(1);
-});
+var menu = document.getElementById("select");
+menu.addEventListener("change", helper1);
 
-document.getElementById("daily1").addEventListener("click", function(){
-    time1 = 'daily';
-    main(1);
-});
+function helper1(event) {
+    if (menu.value == "monthly1"){
+        time1 = 'monthly';
+        main(1);
+    }
+    if (menu.value == "daily1"){
+        time1 = 'daily';
+        main(1);
+    }
+}
 
 document.getElementById("monthly2").addEventListener("click", function(){
     time2 = 'monthly';
