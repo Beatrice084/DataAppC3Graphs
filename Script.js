@@ -79,7 +79,7 @@ function main(num) {
     // createTable(x);
     x = prepareTableDataLine(time);
     createTable(x, '#theTable'.concat(String(num)), "Date");
-    createChart(time, '#chart'.concat(String(num)));
+    createChartLine(time, '#chart'.concat(String(num)));
 }    
 
 function prepareTableDataLine(timeFrame){
@@ -134,7 +134,7 @@ function createTable(tableData, tableID, metric){
 }
         
         
-function createChart(timeFrame, chartID){
+function createChartLine(timeFrame, chartID){
     
     var thisTime = JSON.parse(JSON.stringify(timeFrame));
     for(var i =0; i < thisTime.dates.length; i++){
@@ -163,6 +163,9 @@ function createChart(timeFrame, chartID){
                     // d will be 'id' when called for legends
                     return d.id && d.id === valueKey ? d3.rgb(color).darker(d.value / 30) : color;
                     },
+            },
+            legend: {
+                show: false
             },
             axis: {
                 x: {
@@ -260,6 +263,9 @@ function createChartBar(chartData, chartID){
                 // d will be 'id' when called for legends
                 return columnColors[d.index];
             },
+        },
+        legend: {
+            show: false
         },
         bar: {
             width: {
