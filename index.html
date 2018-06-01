@@ -15,9 +15,34 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/downloadjs/1.4.7/download.min.js"></script>
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/components/button.min.css">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/components/input.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/components/loader.min.css">
+
+        <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/components/segment.min.css"> -->
+        <link href="https://cdn.rawgit.com/mdehoog/Semantic-UI-Calendar/76959c6f7d33a527b49be76789e984a0a407350b/dist/calendar.min.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.rawgit.com/mdehoog/Semantic-UI-Calendar/76959c6f7d33a527b49be76789e984a0a407350b/dist/calendar.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
+        <link href="https://cdn.rawgit.com/mdehoog/Semantic-UI-Calendar/76959c6f7d33a527b49be76789e984a0a407350b/dist/calendar.min.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.rawgit.com/mdehoog/Semantic-UI-Calendar/76959c6f7d33a527b49be76789e984a0a407350b/dist/calendar.min.js"></script>
+        <link type="text/css" rel="stylesheet" href="lowfi-app.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.js"></script>
+
     </head>
 
     <body>
+        
+        <!-- <div class="ui segment">
+            <div class="ui active inverted dimmer">
+                <div class="ui text loader">Loading</div>
+            </div>
+            <p></p>
+        </div> -->
+        <!-- <div class="ui segment">
+            <div class="ui disabled loader"></div>
+            <p>r4usrtjrt</p>
+          </div> -->
         <div id="root">
             <div class="App" style="background-color: rgb(249, 249, 249); height: 100%; max-width: 100%;">
                 <div style="height: 15px; width: 1px;"></div>
@@ -33,14 +58,43 @@
                                     <strong>GC</strong>collab Group Stats Page</h1>
                             </div>
                             <!–– calendar and enter URL ––>
+                            <div class="control-group">
+                                    <div class="date-pickers">
+                                        <span style="vertical-align: middle;">
+                                            <!-- insert datepickers here. Semantic ui maybe? -->
+                                            <div class="ui form">
+                                                <div class="two fields">
+                                                    <div class="field">
+                                                        <label>Start Date</label>
+                                                        <div class="ui calendar" id="rangestart">
+                                                            <div class="ui input left icon">
+                                                                <i class="calendar icon"></i>
+                                                                <input type="text" placeholder="Start">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="field">
+                                                        <label>End Date</label>
+                                                        <div class="ui calendar" id="rangeend">
+                                                            <div class="ui input left icon">
+                                                                <i class="calendar icon"></i>
+                                                                <input type="text" placeholder="End">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </span>
+                                    </div>
+                                </div>
                             <div style="height: 50px; width: 95%; margin: 10px auto 5px;">
-                                <div style="float: left; display: inline; width: 410px; padding-top: 5px; vertical-align: middle;">
+                                <!-- <div style="float: left; display: inline; width: 410px; padding-top: 5px; vertical-align: middle;">
                                     <span style="vertical-align: middle;">
-                                        <div class="react-datepicker-component my-react-component" style="width: 200px; float: left;">
+                                        <div class="class="ui form"" style="width: 200px; float: left;">
                                             <div class="react-datepicker-input has-value">
                                                 <input placeholder="Start Date" value="30/05/2017">
-                                                <div class="react-flex-view align-content-center button-wrapper" style="flex: 0 1 auto;">
-                                                    <div class="react-flex-view input-button" style="flex: 0 0 auto;">
+                                                <div class="ui calendar" style="flex: 0 1 auto;" id="rangeend">
+                                                    <div class="ui input left icon" style="flex: 0 0 auto;">
                                                         <i class="calendar icon"></i>
                                                     </div>
                                                 </div>
@@ -57,7 +111,7 @@
                                             </div>
                                         </div>
                                     </span>
-                                </div>
+                                </div> -->
                                 <div class="ui action input" style="float: right; width: 500px;">
                                     <input placeholder="Paste group URL here..." type="text">
                                     <button class="ui button" role="button">Get stats</button>
