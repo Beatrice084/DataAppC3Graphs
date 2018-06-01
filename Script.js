@@ -36,16 +36,19 @@ function helper1(event) {
     }
 }
 
-document.getElementById("monthly2").addEventListener("click", function(){
-    time2 = 'monthly';
-    main(2);
-});
+var menu2 = document.getElementById("select2");
+menu2.addEventListener("change", helper2);
 
-document.getElementById("daily2").addEventListener("click", function(){
-    time2 = 'daily';
-    main(2);
-});
-
+function helper2(event) {
+    if (menu2.value == "monthly2"){
+        time2 = 'monthly';
+        main(2);
+    }
+    if (menu2.value == "daily2"){
+        time2 = 'daily';
+        main(2);
+    }
+}
 document.getElementById("DownloadCSVLine1").addEventListener("click", function(){
     if (time1 == 'monthly') {    //time is changed based on the last button clicked
         time = chartData1.monthly;

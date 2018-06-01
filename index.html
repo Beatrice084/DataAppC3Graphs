@@ -100,10 +100,8 @@
                                         </div>
                                         <!–– box around indivial graph ––>
                                         <div class="ui segment ind-content-box" style="margin-top: 10px; margin-left: 10px; margin-right: 10px; display: inline-block; width: 98%; border-radius: 5px; background-color: rgb(249, 249, 249); border: 2px solid lightgray;">
-                                            <!–– lineChartData2 ––>
-                                            <button type="button" id="monthly2">Monthly</button>
-                                            <button type="button" id="daily2">Daily</button>
-                                            <p style="display: inline-block;">Group Membership</p>
+                                            <!–– lineChartData1 ––>
+                                            <p style="display: inline-block; margin-left: 20px;">Group Membership</p>
                                             <button id="DownloadCSVLine2" tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 0px; font-weight: inherit; position: relative; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 40px; height: 40px; background: none;">
                                                 <div>
                                                     <div style="position: absolute; font-family: Roboto, sans-serif; font-size: 10px; line-height: 22px; padding: 0px 8px; z-index: 3000; color: rgb(255, 255, 255); overflow: hidden; top: -10000px; border-radius: 2px; user-select: none; opacity: 0; left: -34.5px; transition: top 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box;">
@@ -115,6 +113,12 @@
                                                     </svg>
                                                 </div>
                                             </button>
+                                            <!-- Montly/daily dropdown-->
+                                            <select class="ui dropdown" id="select2" style="float: right; margin-top: 10px; margin-right: 20px;">
+                                                    <option value="monthly2" selected>Monthly</option>
+                                                    <option value="daily2">Daily</option>  
+                                            </select>
+                                            <!-- End Montly/daily dropdown-->        
                                             <div id="container">
                                                 <div id = "chart2" style="display: inline-block; width: 475px; height: 200px; padding: 5px"></div>
                                                 <div id = "spacing" style="display: inline-block; width: 10%; height: 200px;"></div>
