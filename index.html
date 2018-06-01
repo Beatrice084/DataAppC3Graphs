@@ -17,9 +17,27 @@
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/components/input.min.css">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/components/dropdown.min.css"/>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/components/dropdown.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css"/>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.js"></script>
+
+
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
+        <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+                $( function() {
+                  $( "#datepicker1" ).datepicker();
+                } );
+
+                $( function() {
+                  $( "#datepicker2" ).datepicker();
+                } );
+                </script>
     </head>
     <body>
-        
+            
         <!-- <div class="ui segment">
             <div class="ui active inverted dimmer">
                 <div class="ui text loader">Loading</div>
@@ -56,7 +74,7 @@
                                                         <div class="ui calendar" id="rangestart">
                                                             <div class="ui input left icon">
                                                                 <i class="calendar icon"></i>
-                                                                <input type="text" placeholder="Start">
+                                                                <input type="text" placeholder="Start" id ="datepicker1" >
                                                             </div>
                                                         </div>
                                                     </div>
@@ -65,7 +83,7 @@
                                                         <div class="ui calendar" id="rangeend">
                                                             <div class="ui input left icon">
                                                                 <i class="calendar icon"></i>
-                                                                <input type="text" placeholder="End">
+                                                                <input type="text" placeholder="End" id = "datepicker2" >
                                                             </div>
                                                         </div>
                                                     </div>
