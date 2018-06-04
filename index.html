@@ -28,7 +28,6 @@
             $( function() {
                 $( "#datepicker1" ).datepicker();
             } );
-
             $( function() {
                 $( "#datepicker2" ).datepicker();
             } );
@@ -49,39 +48,28 @@
                                 <h1 class="h11"><strong>GC</strong>collab Group Stats Page</h1>
                             </div>
                             <!–– calendar and enter URL ––>
-                            <div class="control-group">
-                                <div class="date-pickers">
-                                    <span>
-                                        <!-- insert datepickers here. Semantic ui maybe? -->
-                                        <div class="ui form">
-                                            <div class="two fields">
-                                                <div class="field">
-                                                    <label>Start Date</label>
-                                                    <div class="ui calendar" id="rangestart" >
-                                                        <div class="ui input left icon">
-                                                            <i class="calendar icon"></i>
-                                                            <input type="text" placeholder="Start" id ="datepicker1" >
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="field">
-                                                    <label>End Date</label>
-                                                    <div class="ui calendar" id="rangeend">
-                                                        <div class="ui input left icon">
-                                                            <i class="calendar icon"></i>
-                                                            <input type="text" placeholder="End" id = "datepicker2">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                            <div class="two-fields">
+                                <div class="field">
+                                    <div class="ui calendar" id="rangestart" >
+                                        <div class="ui input left icon">
+                                            <i class="calendar icon"></i>
+                                            <input type="text" placeholder="Start Date" id ="datepicker1" >
                                         </div>
-                                    </span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div id = "getStats">
-                                <div class="ui action input">
-                                    <input placeholder="Paste group URL here..." type="text">
-                                    <button class="ui button" role="button">Get stats</button>
+                                <div class="field1">
+                                    <div class="ui calendar" id="rangeend">
+                                        <div class="ui input left icon">
+                                            <i class="calendar icon"></i>
+                                            <input type="text" placeholder="End Date" id = "datepicker2">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id = "getStats">
+                                        <div class="ui action input">
+                                            <input placeholder="Paste group URL here..." type="text">
+                                            <button class="ui button" role="button">Get stats</button>
+                                        </div>
                                 </div>
                             </div>
                             <script type="text/javascript" src="browserDetect.js"></script>

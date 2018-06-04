@@ -93,7 +93,8 @@
     display: inline-block;
 }
 .title{
-    display: inline-block; margin-left: 20px;
+    display: inline-block; 
+    margin-left: 20px;
 }
 .csv-button{
     border: 10px; 
@@ -186,7 +187,18 @@ div.ui.action.input{
 }
 
 #getStats {
-    height: 50px;
-    width: 95%;
-    margin: 10px auto 5px;
+    display: inline-block;
+}
+.field{
+    display: inline-block;
+    margin: auto;
+    margin-left: 33px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.field1{
+    display: inline-block;
+    margin-right: 190px;
+    top: 50%;
+    transform: translateY(-50%);
 }
