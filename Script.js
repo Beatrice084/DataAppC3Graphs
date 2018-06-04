@@ -376,3 +376,30 @@ function prepareTableDataBar2(chartData){
     }
     return dataSet;
 }
+
+
+// $("getStats").click(function(e) {
+//     e.preventDefault();
+//     $.ajax({
+//         type: "POST",
+//         url: "/pages/test/",
+//         data: { 
+//             id: $("#getStats").val(), // < note use of 'this' here
+//             access_token: $("#access_token").val() 
+//         },
+//         success: function(result) {
+//             alert('ok');
+//         },
+//         error: function(result) {
+//             alert('error');
+//         }
+//     });
+// });
+
+  $("#datepicker1").on("change keyup paste", function(){
+    console.log('fgwefwe1');
+})
+
+$("#datepicker2").on("change keyup paste", function(){
+    console.log('fgwefwe2');
+})
