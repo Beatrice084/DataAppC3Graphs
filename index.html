@@ -24,6 +24,7 @@
         <link rel="stylesheet" href="/resources/demos/style.css">
         <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <!–– Script so datepickers (JQuery) work ––>
         <script>
             $( function() {
                 $( "#datepicker1" ).datepicker();
@@ -67,7 +68,7 @@
                                 </div>
                                 <div id = "getStats">
                                         <div class="ui action input">
-                                            <input placeholder="Paste group URL here..." type="text">
+                                            <input placeholder="Paste group URL here..." type="text" id="statsurl">
                                             <button class="ui button" role="button" id="getStats">Get stats</button>
                                         </div>
                                 </div>
@@ -79,7 +80,7 @@
                                     <div class="pageviews">
                                         <!-- end white box around 4 graphs -->
                                         <!–– box around indivial graph ––>
-                                        <div class="ui-segment-ind-content-box">
+                                        <div class="ui-segment-ind-content-box" id="box1">
                                             <!–– lineChartData1 ––>
                                             <p class="title">Page views</p>
                                             <button class = "csv-button" id="DownloadCSVLine1" tabindex="0" type="button">
@@ -107,7 +108,7 @@
                                             </div>
                                         </div>
                                         <!–– box around indivial graph ––>
-                                        <div class="ui-segment-ind-content-box">
+                                        <div class="ui-segment-ind-content-box" id="box2">
                                             <!–– lineChartData1 ––>
                                             <p class = "title">Group Membership</p>
                                             <button class = "csv-button" id="DownloadCSVLine2" tabindex="0" type="button">
@@ -136,7 +137,7 @@
                                             </div>
                                         </div>
                                         <!–– box around indivial graph ––>
-                                        <div class="ui-segment-ind-content-box">
+                                        <div class="ui-segment-ind-content-box" id="box3">
                                             <!–– BarChartData1 ––>
                                             <div>
                                                 <p class = "title">Group Members by Department</p>
@@ -159,7 +160,7 @@
                                             </div>
                                         </div>
                                         <!–– box around indivial graph ––>
-                                        <div class="ui-segment-ind-content-box-final">
+                                        <div class="ui-segment-ind-content-box-final" id="box4">
                                             <!–– BarChartData2 ––>
                                             <div>
                                                 <p class = "title">Top Group Content</p>
@@ -183,12 +184,16 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!–– paste url message ––>
+                                <p class="url-message">Paste the group URL above and set your desired start and end dates to retrieve relevant statistics.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!–– Connection to javascript ––>
+        <script src="lowfi-app.js"></script>
         <script src="Script.js"></script>
     </body>
 </html>

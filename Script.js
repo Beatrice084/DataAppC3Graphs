@@ -420,10 +420,99 @@ function prepareTableDataBar2(chartData){
 //     });
 // });
 
-  $("#datepicker1").on("change keyup paste", function(){
-    console.log('fgwefwe1');
+String.prototype.replaceAll = function(search, replacement) {
+    var target = this;
+    return target.replace(new RegExp(search, 'g'), replacement);
+};
+
+$("#datepicker1").on("change keyup paste", function(){
+    console.log(this.value);
+    state.startDate = this.value.replaceAll("/","-");
+    helperRequestData();
 })
 
 $("#datepicker2").on("change keyup paste", function(){
-    console.log('fgwefwe2');
+    console.log(this.value);
+    state.endDate = this.value.replaceAll("/","-");
+    helperRequestData();
 })
+
+function helperRequestData() {
+    requestData('membersOverTime');
+    requestData('departments');
+    requestData('topContent');
+    requestData('pageViews');
+}
+
+document.getElementById("getStats").addEventListener("click", function(){
+    console.log(document.getElementById("statsurl").value);
+    state.groupURL = document.getElementById("statsurl").value;
+    helperRequestData(); 
+});
+
+var state = {
+    startDate: null,
+    endDate: null,
+    // Each metric's specific state. Populated after data is received
+    membersOverTime: {},
+    departments: {},
+    topContent: {},
+    pageViews: {}
+};
+state.groupURL = "";
+
+function requestData(reqType) {
+    // Form correct request based on request type
+    // Really ugly, needs back end changes
+    var reqStatement = ""; // Populate this with the request
+    switch (reqType) {
+        case 'membersOverTime':
+            reqStatement = '{"stepIndex":4,"reqType":{"category":1,"filter":"'+
+                state.groupURL +'"},"metric":3,"metric2":0,"time":{"startDate":"'+
+                state.startDate +'","endDate":"'+ state.endDate +'","allTime":true},"errorFlag":false}';
+            break;
+        case 'departments':
+            reqStatement = '{"stepIndex":4,"reqType":{"category":1,"filter":"'+ 
+                state.groupURL +'"},"metric":4,"metric2":0,"time":{"startDate":"2017-02-12","endDate":"2018-02-12","allTime":true},"errorFlag":false}'
+            break;
+        case 'topContent':
+            reqStatement = '{"stepIndex":4,"reqType":{"category":1,"filter":"'+
+                state.groupURL +'"},"metric":2,"metric2":0,"time":{"startDate":"2017-02-12","endDate":"2018-02-12","allTime":true},"errorFlag":false}'
+            break;
+        case 'pageViews':
+            reqStatement = '{"stepIndex":4,"reqType":{"category":1,"filter":"'+ 
+                state.groupURL +'"},"metric":1,"metric2":0,"time":{"startDate":"' + 
+                state.startDate +'","endDate":"' + 
+                state.endDate +'","allTime":true},"errorFlag":false}';
+            break;
+        }
+    // Send the request
+    $.ajax({
+        type: 'POST',
+        datatype: 'json',
+        url: '/getData/request',
+        body: reqStatement,
+        success: function(resp) {
+            chartData1 = resp;
+            chartData2 = resp;
+            switch(reqType) {
+                case 'membersOverTime':
+                    mainLine(2)
+                    break;
+                case 'departments':
+                    mainBar(1, 'departments');
+                    break;
+                case 'topContent':
+                    mainBar(2, 'topContent');
+                    break;
+                case 'pageViews':
+                    mainLine(1)
+                    break;
+            }
+        }
+    });
+}
+
+$(document).ready(function(){
+    $('.white-box').hide();
+});
