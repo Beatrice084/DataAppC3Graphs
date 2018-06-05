@@ -513,6 +513,6 @@ function requestData(reqType) {
     });
 }
 
-$(document).ready(function(){
-    $('.white-box').hide();
-});
+// $(document).ready(function(){
+//     $('.white-box').hide();
+// });

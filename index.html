@@ -37,7 +37,7 @@
         </script>
     </head>
     <body>
-            <div class="ui segment">
+            <!-- <div class="ui segment">
                     <div class="ui active dimmer">
                       <div class="ui text loader">Loading</div>
                     </div>
@@ -46,7 +46,7 @@
                   <div class="ui segment">
                         <div class="ui active loader"></div>
                         <p></p>
-                       </div>
+                       </div> -->
         <div id="root">
             <div class="App" id="App">
                 <div class="div1" id="div1"></div>
@@ -105,11 +105,10 @@
                                                         <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path>
                                                     </svg>
                                                 </div>
-                                                <div class="ui segment">
-                                                        <div class="ui active loader"></div>
-                                                        <p></p>
-                                                       </div>
                                             </button>
+                                            <div class="ui segment" id="loader">
+                                                    <div class="ui active centered inline loader"></div>
+                                                </div>
                                             <!-- Monthly/daily dropdown-->
                                             <select class="ui dropdown" id="select">
                                                     <option value="monthly1" selected>Monthly</option>
@@ -138,11 +137,9 @@
                                                     </svg>
                                                 </div>
                                             </button>
-                                            <div class="ui segment">
-                                                    <div class="ui active centered inline loader"></div>
-                                                    
-                                                    <p></p>
-                                                   </div>
+                                            <div class="ui segment" id="loader">
+                                                <div class="ui active centered inline loader"></div>
+                                            </div>
                                             <!-- Monthly/daily dropdown-->
                                             <select class="ui dropdown" id="select2">
                                                     <option value="monthly2" selected>Monthly</option>
@@ -174,6 +171,9 @@
                                                     </div>
                                                 </button>
                                             </div>
+                                            <div class="ui segment" id="loader">
+                                                <div class="ui active centered inline loader"></div>
+                                            </div>
                                             <div class="chart" id="barChart1"></div>
                                             <div class="spacing" id = "spacing"></div>
                                             <div class="table">
@@ -196,6 +196,9 @@
                                                         </svg>
                                                     </div>
                                                 </button>
+                                            </div>
+                                            <div class="ui segment" id="loader">
+                                                <div class="ui active centered inline loader"></div>
                                             </div>
                                             <div class="chart" id="barChart2"></div>
                                             <div class="spacing" id = "spacing"></div>

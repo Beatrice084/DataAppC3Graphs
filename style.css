@@ -202,3 +202,8 @@ div.ui.action.input{
     top: 50%;
     transform: translateY(-50%);
 }
+
+#loader {
+    position: absolute;
+    left: 50%;
+}
