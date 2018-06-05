@@ -22,6 +22,8 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.js"></script>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="/resources/demos/style.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/components/loader.min.css">
+
         <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script>
@@ -34,6 +36,16 @@
         </script>
     </head>
     <body>
+            <div class="ui segment">
+                    <div class="ui active dimmer">
+                      <div class="ui text loader">Loading</div>
+                    </div>
+                    <p></p>
+                  </div>
+                  <div class="ui segment">
+                        <div class="ui active loader"></div>
+                        <p></p>
+                       </div>
         <div id="root">
             <div class="App" id="App">
                 <div class="div1" id="div1"></div>
@@ -92,6 +104,10 @@
                                                         <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path>
                                                     </svg>
                                                 </div>
+                                                <div class="ui segment">
+                                                        <div class="ui active loader"></div>
+                                                        <p></p>
+                                                       </div>
                                             </button>
                                             <!-- Monthly/daily dropdown-->
                                             <select class="ui dropdown" id="select">
@@ -121,6 +137,11 @@
                                                     </svg>
                                                 </div>
                                             </button>
+                                            <div class="ui segment">
+                                                    <div class="ui active centered inline loader"></div>
+                                                    
+                                                    <p></p>
+                                                   </div>
                                             <!-- Monthly/daily dropdown-->
                                             <select class="ui dropdown" id="select2">
                                                     <option value="monthly2" selected>Monthly</option>

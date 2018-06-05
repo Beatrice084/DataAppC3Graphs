@@ -30,10 +30,10 @@ function wooo(data){
             mainLine(2)
             break;
         case 'departments':
-            mainBar(1, 'departments');
+            mainBar(1, 'Department');
             break;
         case 'topContent':
-            mainBar(2, 'topContent');
+            mainBar(2, 'Title');
             break;
         case 'pageViews':
             mainLine(1)
@@ -245,7 +245,7 @@ $.ajax({
     dataType: "json",
     url: 'barChartData1.json',
     success: function(d){
-        mainBar(1, 'department', d);
+        mainBar(1, 'Department', d);
     }
 });
 
@@ -253,15 +253,15 @@ $.ajax({
     dataType: "json",
     url: 'barChartData2.json',
     success: function(d){
-        mainBar(2, 'topContent', d)
+        mainBar(2, 'Title', d)
     }
 });
 
 function mainBar(num, stringy, barChartData){
-    if(stringy == 'departments'){
+    if(stringy == 'Department'){
         x = prepareTableDataBar(barChartData)
     }
-    else if(stringy == 'topContent'){
+    else if(stringy == 'Title'){
         x = prepareTableDataBar2(barChartData);
     }
     createChartBar(barChartData, '#barChart'.concat(String(num)));
