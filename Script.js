@@ -9,7 +9,7 @@ $.ajax({
     url: 'lineChartData1.json',
     success: function(data){
         chartData1 = data;
-        main(1);
+        mainLine(1);
     }
 });
 
@@ -18,9 +18,28 @@ $.ajax({
     url: 'lineChartData2.json',
     success: function(data){
         chartData2 = data;
-        main(2);
+        mainLine(2);
     }
 });
+
+function wooo(data){
+    chartData1 = data;
+    chartData2 = data;
+    switch(reqType) {
+        case 'membersOverTime':
+            mainLine(2)
+            break;
+        case 'departments':
+            mainBar(1, 'departments');
+            break;
+        case 'topContent':
+            mainBar(2, 'topContent');
+            break;
+        case 'pageViews':
+            mainLine(1)
+            break;
+    }
+}
 
 var menu = document.getElementById("select");
 menu.addEventListener("change", helper1);
@@ -28,11 +47,11 @@ menu.addEventListener("change", helper1);
 function helper1(event) {
     if (menu.value == "monthly1"){
         time1 = 'monthly';
-        main(1);
+        mainLine(1);
     }
     if (menu.value == "daily1"){
         time1 = 'daily';
-        main(1);
+        mainLine(1);
     }
 }
 
@@ -42,11 +61,11 @@ menu2.addEventListener("change", helper2);
 function helper2(event) {
     if (menu2.value == "monthly2"){
         time2 = 'monthly';
-        main(2);
+        mainLine(2);
     }
     if (menu2.value == "daily2"){
         time2 = 'daily';
-        main(2);
+        mainLine(2);
     }
 }
 document.getElementById("DownloadCSVLine1").addEventListener("click", function(){
@@ -69,7 +88,7 @@ document.getElementById("DownloadCSVLine2").addEventListener("click", function()
     downloadCSVLine(time);
 });
 
-function main(num) {
+function mainLine(num) {
     if (time1 == 'monthly' && num==1) {    //time is changed based on the last button clicked
         time = chartData1.monthly;
     }
@@ -226,10 +245,7 @@ $.ajax({
     dataType: "json",
     url: 'barChartData1.json',
     success: function(d){
-        barChartData1 = d;
-        x = prepareTableDataBar(d);
-        createChartBar(d, barChart1);
-        createTable(x, '#test1', "Department");
+        mainBar(1, 'department', d);
     }
 });
 
@@ -237,12 +253,20 @@ $.ajax({
     dataType: "json",
     url: 'barChartData2.json',
     success: function(d){
-        barChartData2 = d;
-        x = prepareTableDataBar2(d);
-        createChartBar(d, barChart2);
-        createTable(x, '#test2', "Title");
+        mainBar(2, 'topContent', d)
     }
 });
+
+function mainBar(num, stringy, barChartData){
+    if(stringy == 'departments'){
+        x = prepareTableDataBar(barChartData)
+    }
+    else if(stringy == 'topContent'){
+        x = prepareTableDataBar2(barChartData);
+    }
+    createChartBar(barChartData, '#barChart'.concat(String(num)));
+    createTable(x, '#test'.concat(String(num)), stringy);
+}
         
 function prepareTableDataBar(chartData){
     var dataSet = []
