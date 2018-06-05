@@ -30,10 +30,10 @@ function wooo(data){
             mainLine(2)
             break;
         case 'departments':
-            mainBar(1, 'Department');
+            mainBar(1, 'departments');
             break;
         case 'topContent':
-            mainBar(2, 'Title');
+            mainBar(2, 'topContent');
             break;
         case 'pageViews':
             mainLine(1)
@@ -245,7 +245,7 @@ $.ajax({
     dataType: "json",
     url: 'barChartData1.json',
     success: function(d){
-        mainBar(1, 'Department', d);
+        mainBar(1, 'department', d);
     }
 });
 
@@ -253,15 +253,15 @@ $.ajax({
     dataType: "json",
     url: 'barChartData2.json',
     success: function(d){
-        mainBar(2, 'Title', d)
+        mainBar(2, 'topContent', d)
     }
 });
 
 function mainBar(num, stringy, barChartData){
-    if(stringy == 'Department'){
+    if(stringy == 'departments'){
         x = prepareTableDataBar(barChartData)
     }
-    else if(stringy == 'Title'){
+    else if(stringy == 'topContent'){
         x = prepareTableDataBar2(barChartData);
     }
     createChartBar(barChartData, '#barChart'.concat(String(num)));
@@ -442,6 +442,8 @@ function helperRequestData() {
     requestData('departments');
     requestData('topContent');
     requestData('pageViews');
+    $('.white-box').show();
+    $('.url-message').hide();
 }
 
 document.getElementById("getStats").addEventListener("click", function(){
@@ -492,27 +494,29 @@ function requestData(reqType) {
         datatype: 'json',
         url: '/getData/request',
         body: reqStatement,
-        success: function(resp) {
-            chartData1 = resp;
-            chartData2 = resp;
+        success: function(resp) {  
             switch(reqType) {
                 case 'membersOverTime':
                     mainLine(2)
+                    chartData1 = resp;
                     break;
                 case 'departments':
                     mainBar(1, 'departments');
+                    chartData2 = resp;
                     break;
                 case 'topContent':
                     mainBar(2, 'topContent');
+                    barChartData1 = resp;
                     break;
                 case 'pageViews':
                     mainLine(1)
+                    barChartData2 = resp;
                     break;
             }
         }
     });
 }
 
-// $(document).ready(function(){
-//     $('.white-box').hide();
-// });
+$(document).ready(function(){
+    $('.white-box').hide();
+});
