@@ -484,7 +484,30 @@ function requestData(reqType) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
+            resp = JSON.parse(this.response);
             console.log(this.response);
+            switch(reqType) {
+                case 'membersOverTime':
+                    chartData2 = resp;
+                    console.log(chartData2);
+                    mainLine(2);
+                    break;
+                case 'departments':
+                    barChartData1 = resp;
+                    console.log(barChartData1);
+                    mainBar(1, 'departments', resp);
+                    break;
+                case 'topContent':
+                    barChartData2 = resp;
+                    console.log(barChartData2);
+                    mainBar(2, 'topContent', resp);
+                    break;
+                case 'pageViews':
+                    chartData1 = resp;
+                    console.log(chartData1);
+                    mainLine(1)
+                    break;
+            }
        }
     };
     xmlHttp.open("POST", "/getData/request", false); // false for synchronous request
