@@ -477,39 +477,49 @@ function requestData(reqType) {
             break;
         }
     // Send the request
-    $.ajax({
-        type: 'POST',
-        datatype: 'json',
-        url: '/getData/request',
-        body: reqStatement,
-        success: function(resp) {  
-            console.log(resp);
-            console.log(typeof(resp));
-            resp = JSON.parse(resp);
-            switch(reqType) {
-                case 'membersOverTime':
-                    chartData2 = resp;
-                    console.log(chartData2);
-                    mainLine(2);
-                    break;
-                case 'departments':
-                    barChartData1 = resp;
-                    console.log(barChartData1);
-                    mainBar(1, 'departments', resp);
-                    break;
-                case 'topContent':
-                    barChartData2 = resp;
-                    console.log(barChartData2);
-                    mainBar(2, 'topContent', resp);
-                    break;
-                case 'pageViews':
-                    chartData1 = resp;
-                    console.log(chartData1);
-                    mainLine(1)
-                    break;
-            }
-        }
-    });
+    reqStatement = JSON.parse('{"stepIndex":4,"reqType":{"category":1,"filter":"https://gccollab.ca/groups/profile/718/canada-indigenous-relations-creating-awareness-fostering-reconciliation-and-contributing-to-a-shared-future-relations-canada-et-peuples-indigenes-promouvoir-la-sensibilisation-favoriser-la-reconciliation-et-contribuer-a-un-avenir-partager"},"metric":2,"metric2":0,"time":{"startDate":"2017-02-12","endDate":"2018-02-12","allTime":true},"errorFlag":false}');
+    console.log(reqStatement);
+    reqStatement = JSON.stringify(reqStatement);
+    //var data = {name:"John"}
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("POST", "/getData/request", false); // false for synchronous request
+    xmlHttp.setRequestHeader("Content-type", "application/json");
+    xmlHttp.send(reqStatement);
+    // $.ajax({
+    //     type: 'post',
+    //     contentType: 'application/json',
+    //     dataType: 'json',
+    //     url: '/getData/request',
+    //     body: reqStatement,
+    //     processData: false,
+    //     success: function(resp) {  
+    //         console.log(resp);
+    //         console.log(typeof(resp));
+    //         //resp = JSON.parse(resp);
+    //         switch(reqType) {
+    //             case 'membersOverTime':
+    //                 chartData2 = resp;
+    //                 console.log(chartData2);
+    //                 mainLine(2);
+    //                 break;
+    //             case 'departments':
+    //                 barChartData1 = resp;
+    //                 console.log(barChartData1);
+    //                 mainBar(1, 'departments', resp);
+    //                 break;
+    //             case 'topContent':
+    //                 barChartData2 = resp;
+    //                 console.log(barChartData2);
+    //                 mainBar(2, 'topContent', resp);
+    //                 break;
+    //             case 'pageViews':
+    //                 chartData1 = resp;
+    //                 console.log(chartData1);
+    //                 mainLine(1)
+    //                 break;
+    //         }
+    //     }
+    // });
 }
 
 $(document).ready(function(){
