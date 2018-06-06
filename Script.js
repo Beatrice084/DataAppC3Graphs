@@ -433,10 +433,10 @@ function helperRequestData() {
     $('.url-message').hide();
 }
 
-document.getElementById("getStats").addEventListener("click", function(){
+document.getElementById("getStatss").addEventListener("click", function(){
     //console.log(document.getElementById("statsurl").value);
     state.groupURL = document.getElementById("statsurl").value;
-    helperRequestData(); 
+    helperRequestData();  
 });
 
 var state = {
@@ -508,6 +508,9 @@ function requestData(reqType) {
                     mainLine(1)
                     break;
             }
+            setTimeout(function() {
+                $(window).trigger('resize');
+            }, 0);
        }
     };
     xmlHttp.open("POST", "/getData/request", false); // false for synchronous request
@@ -554,3 +557,6 @@ function requestData(reqType) {
 $(document).ready(function(){
     $('.white-box').hide();
 });
+
+
+
