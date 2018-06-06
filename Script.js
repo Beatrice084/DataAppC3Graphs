@@ -22,25 +22,6 @@ $.ajax({
     }
 });
 
-function wooo(data){
-    chartData1 = data;
-    chartData2 = data;
-    switch(reqType) {
-        case 'membersOverTime':
-            mainLine(2)
-            break;
-        case 'departments':
-            mainBar(1, 'departments');
-            break;
-        case 'topContent':
-            mainBar(2, 'topContent');
-            break;
-        case 'pageViews':
-            mainLine(1)
-            break;
-    }
-}
-
 var menu = document.getElementById("select");
 menu.addEventListener("change", helper1);
 
@@ -109,6 +90,7 @@ function mainLine(num) {
 }    
 
 function prepareTableDataLine(timeFrame){
+    //console.log(timeFrame);
     valueKey = Object.keys(timeFrame)[1];
     if(timeFrame.dates[0] == 'Dates'){      //formatting the data to be used for making the table
         timeFrame.dates.splice(0,1);
@@ -262,6 +244,7 @@ function mainBar(num, stringy, barChartData){
         x = prepareTableDataBar(barChartData)
     }
     else if(stringy == 'topContent'){
+        //console.log(barChartData);
         x = prepareTableDataBar2(barChartData);
     }
     createChartBar(barChartData, '#barChart'.concat(String(num)));
@@ -281,7 +264,7 @@ function prepareTableDataBar(chartData){
 
 function createChartBar(chartData, chartID){
     zeroethKey = Object.keys(chartData)[0];
-    firstKey = Object.keys(chartData)[1]; 
+    firstKey = Object.keys(chartData)[1];
     chartData[zeroethKey].unshift(zeroethKey);
     chartData[firstKey].unshift(firstKey);
     columnss = chartData[zeroethKey].slice(1,21);
@@ -426,15 +409,19 @@ String.prototype.replaceAll = function(search, replacement) {
 };
 
 $("#datepicker1").on("change keyup paste", function(){
-    console.log(this.value);
+    //console.log(this.value);
     state.startDate = this.value.replaceAll("/","-");
-    helperRequestData();
+    if (state.groupURL != ""){
+        helperRequestData();
+    }
 })
 
 $("#datepicker2").on("change keyup paste", function(){
-    console.log(this.value);
+    //console.log(this.value);
     state.endDate = this.value.replaceAll("/","-");
-    helperRequestData();
+    if (state.groupURL != ""){
+        helperRequestData();
+    }
 })
 
 function helperRequestData() {
@@ -447,20 +434,20 @@ function helperRequestData() {
 }
 
 document.getElementById("getStats").addEventListener("click", function(){
-    console.log(document.getElementById("statsurl").value);
+    //console.log(document.getElementById("statsurl").value);
     state.groupURL = document.getElementById("statsurl").value;
     helperRequestData(); 
 });
 
 var state = {
-    startDate: null,
-    endDate: null,
     // Each metric's specific state. Populated after data is received
     membersOverTime: {},
     departments: {},
     topContent: {},
     pageViews: {}
 };
+state.startDate = "2017-02-12";
+state.endDate = "2018-02-12";
 state.groupURL = "";
 
 function requestData(reqType) {
@@ -471,7 +458,8 @@ function requestData(reqType) {
         case 'membersOverTime':
             reqStatement = '{"stepIndex":4,"reqType":{"category":1,"filter":"'+
                 state.groupURL +'"},"metric":3,"metric2":0,"time":{"startDate":"'+
-                state.startDate +'","endDate":"'+ state.endDate +'","allTime":true},"errorFlag":false}';
+                state.startDate +'","endDate":"'+ 
+                state.endDate +'","allTime":true},"errorFlag":false}';
             break;
         case 'departments':
             reqStatement = '{"stepIndex":4,"reqType":{"category":1,"filter":"'+ 
@@ -495,22 +483,29 @@ function requestData(reqType) {
         url: '/getData/request',
         body: reqStatement,
         success: function(resp) {  
+            console.log(resp);
+            console.log(typeof(resp));
+            resp = JSON.parse(resp);
             switch(reqType) {
                 case 'membersOverTime':
-                    mainLine(2)
-                    chartData1 = resp;
+                    chartData2 = resp;
+                    console.log(chartData2);
+                    mainLine(2);
                     break;
                 case 'departments':
-                    mainBar(1, 'departments');
-                    chartData2 = resp;
+                    barChartData1 = resp;
+                    console.log(barChartData1);
+                    mainBar(1, 'departments', resp);
                     break;
                 case 'topContent':
-                    mainBar(2, 'topContent');
-                    barChartData1 = resp;
+                    barChartData2 = resp;
+                    console.log(barChartData2);
+                    mainBar(2, 'topContent', resp);
                     break;
                 case 'pageViews':
+                    chartData1 = resp;
+                    console.log(chartData1);
                     mainLine(1)
-                    barChartData2 = resp;
                     break;
             }
         }
