@@ -482,8 +482,14 @@ function requestData(reqType) {
     reqStatement = JSON.stringify(reqStatement);
     //var data = {name:"John"}
     var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.response);
+       }
+    };
     xmlHttp.open("POST", "/getData/request", false); // false for synchronous request
     xmlHttp.setRequestHeader("Content-type", "application/json");
+    
     xmlHttp.send(reqStatement);
     // $.ajax({
     //     type: 'post',
