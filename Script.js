@@ -425,17 +425,20 @@ $("#datepicker2").on("change keyup paste", function(){
 })
 
 function helperRequestData() {
+    $('.loading').show();
+    $('.loading1').show();
+    $('.loading2').show();
+    $('.loading3').show();
+    $('.url-message').hide(); 
     $('.white-box').show("slow", function(){
         requestData('membersOverTime');
         requestData('departments');
         requestData('topContent');
         requestData('pageViews');
     }); 
-    $('.url-message').hide(); 
-    $('.loading').hide();
 }
 
-document.getElementById("getStats").addEventListener("click", function(){
+document.getElementById("getStatss").addEventListener("click", function(){
     //console.log(document.getElementById("statsurl").value);
     state.groupURL = document.getElementById("statsurl").value;
     helperRequestData(); 
@@ -493,21 +496,25 @@ function requestData(reqType) {
                     chartData2 = resp;
                     console.log(chartData2);
                     mainLine(2);
+                    $('.loading1').hide();
                     break;
                 case 'departments':
                     barChartData1 = resp;
                     console.log(barChartData1);
                     mainBar(1, 'departments', resp);
+                    $('.loading2').hide();
                     break;
                 case 'topContent':
                     barChartData2 = resp;
                     console.log(barChartData2);
                     mainBar(2, 'topContent', resp);
+                    $('.loading3').hide();
                     break;
                 case 'pageViews':
                     chartData1 = resp;
                     console.log(chartData1);
                     mainLine(1)
+                    $('.loading').hide();
                     break;
             }
             setTimeout(function() {

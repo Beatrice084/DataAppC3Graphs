@@ -77,6 +77,7 @@
     border-radius: 5px; 
     background-color: rgb(249, 249, 249); 
     border: 2px solid lightgray;
+    position: relative;
 }
 .ui-segment-ind-content-box-final{
     margin-top: 10px; 
@@ -88,6 +89,7 @@
     background-color: rgb(249, 249, 249); 
     border: 2px solid lightgray;
     margin-bottom: 10px;
+    position: relative;
 }
 #rangestart, #rangeend{
     display: inline-block;
@@ -202,8 +204,38 @@ div.ui.action.input{
     top: 50%;
     transform: translateY(-50%);
 }
-
-#loader {
+.url-message{
+    top: 50%;
+    transform: translateY(-50%);
+    margin: auto;
+    margin-left: 250px;
+    font-family: Helvetica, Arial, sans-serif; 
+}
+#loading {
+    /* margin-left: 48%;
+    margin-top: 100px; */
     position: absolute;
     left: 50%;
-}
+    top: 35%;
+ }
+ #loading1 {
+    /* margin-left: 48%;
+    margin-top: 100px; */
+    position: absolute;
+    left: 50%;
+    top: 35%;
+ }
+ #loading2 {
+    /* margin-left: 48%;
+    margin-top: 100px; */
+    position: absolute;
+    left: 50%;
+    top: 35%;
+ }
+ #loading3 {
+    /* margin-left: 48%;
+    margin-top: 100px; */
+    position: absolute;
+    left: 50%;
+    top: 35%;
+ }

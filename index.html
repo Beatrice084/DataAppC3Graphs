@@ -24,6 +24,7 @@
         <link rel="stylesheet" href="/resources/demos/style.css">
         <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type"text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/components/loader.min.css"></script>
         <!–– Script so datepickers (JQuery) work ––>
         <script>
             $( function() {
@@ -69,7 +70,7 @@
                                 <div id = "getStats">
                                         <div class="ui action input">
                                             <input placeholder="Paste group URL here..." type="text" id="statsurl">
-                                            <button class="ui button" role="button" id="getStats">Get stats</button>
+                                            <button class="ui button" role="button" id="getStatss">Get stats</button>
                                         </div>
                                 </div>
                             </div>
@@ -100,7 +101,10 @@
                                                     <option value="daily1">Daily</option>  
                                             </select>
                                             <!-- End Monthly/daily dropdown-->  
-                                                    
+                                             <!-- loading symbol-->
+                                            <div id="loading" class="loading">
+                                                    <img id="loading-image" src="loader2.gif" alt="Loading..." />
+                                            </div>       
                                             <div id="container">
                                                 <div class="chart" id = "chart1"></div>
                                                 <div class="spacing" id = "spacing"></div>
@@ -127,6 +131,10 @@
                                                     <option value="monthly2" selected>Monthly</option>
                                                     <option value="daily2">Daily</option>  
                                             </select>
+                                            <!-- loading symbol-->
+                                            <div id="loading1" class="loading1">
+                                                    <img id="loading-image" src="loader2.gif" alt="Loading..." />
+                                            </div> 
                                             <!-- End Monthly/daily dropdown-->        
                                             <div id="container">
                                                 <div class="chart" id = "chart2"></div>
@@ -153,10 +161,16 @@
                                                     </div>
                                                 </button>
                                             </div>
-                                            <div class="chart" id="barChart1"></div>
-                                            <div class="spacing" id = "spacing"></div>
-                                            <div class="table">
-                                                <table id="test1" class="display"></table>
+                                            <!-- loading symbol-->
+                                            <div id="loading2" class="loading2">
+                                                    <img id="loading-image" src="loader2.gif" alt="Loading..." />
+                                            </div> 
+                                            <div>
+                                                <div class="chart" id="barChart1"></div>
+                                                <div class="spacing" id = "spacing"></div>
+                                                <div class="table">
+                                                    <table id="test1" class="display"></table>
+                                                </div>
                                             </div>
                                         </div>
                                         <!–– box around indivial graph ––>
@@ -176,10 +190,16 @@
                                                     </div>
                                                 </button>
                                             </div>
-                                            <div class="chart" id="barChart2"></div>
-                                            <div class="spacing" id = "spacing"></div>
-                                            <div class="table">
-                                                <table id="test2" class="display"></table>
+                                            <!-- loading symbol-->
+                                            <div id="loading3" class="loading3">
+                                                    <img id="loading-image" src="loader2.gif" alt="Loading..." />
+                                            </div> 
+                                            <div class="container2">
+                                                <div class="chart" id="barChart2"></div>
+                                                <div class="spacing" id = "spacing"></div>
+                                                <div class="table">
+                                                    <table id="test2" class="display"></table>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -193,7 +213,6 @@
             </div>
         </div>
         <!–– Connection to javascript ––>
-        <script src="lowfi-app.js"></script>
         <script src="Script.js"></script>
     </body>
 </html>
