@@ -410,7 +410,10 @@ String.prototype.replaceAll = function(search, replacement) {
 
 $("#datepicker1").on("change keyup paste", function(){
     //console.log(this.value);
-    state.startDate = this.value.replaceAll("/","-");
+    var day = this.value.slice(3,5);
+    var month = this.value.slice(0,2);
+    var year = this.value.slice(6,10);
+    state.startDate = year + "-" + month + "-"+day;
     if (state.groupURL != ""){
         helperRequestData();
     }
@@ -418,7 +421,10 @@ $("#datepicker1").on("change keyup paste", function(){
 
 $("#datepicker2").on("change keyup paste", function(){
     //console.log(this.value);
-    state.endDate = this.value.replaceAll("/","-");
+    var day = this.value.slice(3,5);
+    var month = this.value.slice(0,2);
+    var year = this.value.slice(6,10);
+    state.endDate = year + "-" + month + "-"+day;
     if (state.groupURL != ""){
         helperRequestData();
     }
@@ -451,8 +457,8 @@ var state = {
     topContent: {},
     pageViews: {}
 };
-state.startDate = "2017-02-12";
-state.endDate = "2018-02-12";
+state.startDate = "2017-02-15";
+state.endDate = "2018-02-15";
 state.groupURL = "";
 
 function requestData(reqType) {
@@ -486,6 +492,7 @@ function requestData(reqType) {
     //console.log(reqStatement);
     //reqStatement = JSON.stringify(reqStatement);
     //var data = {name:"John"}
+    console.log(reqStatement);
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
