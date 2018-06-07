@@ -469,10 +469,12 @@ function dateConverter(d) {
     }
     return year + "-" + month + "-" + day;
 }
-var d = new Date();
-d.setFullYear(d.getFullYear()-1);
-state.startDate = dateConverter(d);
-state.endDate = dateConverter(new Date());
+var startDay = new Date();
+startDay.setFullYear(startDay.getFullYear()-1);
+startDay.setMonth(startDay.getMonth()+1);
+state.startDate = dateConverter(startDay);
+endDay = new Date(startDay.getFullYear()+1, startDay.getMonth(), startDay.getDate())
+state.endDate = dateConverter(endDay);
 state.groupURL = "";
 
 function requestData(reqType) {
@@ -487,14 +489,21 @@ function requestData(reqType) {
                 state.endDate +'","allTime":true},"errorFlag":false}';
             break;
         case 'departments':
+            console.log('departments');
             reqStatement = '{"stepIndex":4,"reqType":{"category":1,"filter":"'+ 
-                state.groupURL +'"},"metric":4,"metric2":0,"time":{"startDate":"2017-02-12","endDate":"2018-02-12","allTime":true},"errorFlag":false}'
+                state.groupURL +'"},"metric":4,"metric2":0,"time":{"startDate":"'+
+                state.startDate +'","endDate":"'+ 
+                state.endDate +'","allTime":true},"errorFlag":false}';
             break;
         case 'topContent':
+            console.log('topContent');
             reqStatement = '{"stepIndex":4,"reqType":{"category":1,"filter":"'+
-                state.groupURL +'"},"metric":2,"metric2":0,"time":{"startDate":"2017-02-12","endDate":"2018-02-12","allTime":true},"errorFlag":false}'
+                state.groupURL +'"},"metric":2,"metric2":0,"time":{"startDate":"'+
+                state.startDate +'","endDate":"'+ 
+                state.endDate +'","allTime":true},"errorFlag":false}';
             break;
         case 'pageViews':
+            console.log('pageViews');
             reqStatement = '{"stepIndex":4,"reqType":{"category":1,"filter":"'+ 
                 state.groupURL +'"},"metric":1,"metric2":0,"time":{"startDate":"' + 
                 state.startDate +'","endDate":"' + 
