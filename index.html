@@ -29,9 +29,13 @@
         <script>
             $( function() {
                 $( "#datepicker1" ).datepicker();
+                var d = new Date();
+                d.setFullYear(d.getFullYear()-1);
+                $( "#datepicker1" ).datepicker("setDate", d);
             } );
             $( function() {
                 $( "#datepicker2" ).datepicker();
+                $( "#datepicker2" ).datepicker("setDate", new Date());
             } );
         </script>
     </head>

@@ -457,8 +457,22 @@ var state = {
     topContent: {},
     pageViews: {}
 };
-state.startDate = "2017-02-15";
-state.endDate = "2018-02-15";
+function dateConverter(d) {
+    year = String(d.getFullYear());
+    day = String(d.getDate());
+    month = String(d.getMonth());
+    if (day.length == 1){
+        day = "0" + day;
+    }
+    if (month.length == 1){
+        month = "0" + month;
+    }
+    return year + "-" + month + "-" + day;
+}
+var d = new Date();
+d.setFullYear(d.getFullYear()-1);
+state.startDate = dateConverter(d);
+state.endDate = dateConverter(new Date());
 state.groupURL = "";
 
 function requestData(reqType) {
