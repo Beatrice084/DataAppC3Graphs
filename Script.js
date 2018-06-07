@@ -4,23 +4,23 @@ var time2 = 'monthly';
 var chartData1;  //var to store data from the json file
 var chartData2;
 
-$.ajax({
-    dataType: "json",
-    url: 'lineChartData1.json',
-    success: function(data){
-        chartData1 = data;
-        mainLine(1);
-    }
-});
+// $.ajax({
+//     dataType: "json",
+//     url: 'lineChartData1.json',
+//     success: function(data){
+//         chartData1 = data;
+//         mainLine(1);
+//     }
+// });
 
-$.ajax({
-    dataType: "json",
-    url: 'lineChartData2.json',
-    success: function(data){
-        chartData2 = data;
-        mainLine(2);
-    }
-});
+// $.ajax({
+//     dataType: "json",
+//     url: 'lineChartData2.json',
+//     success: function(data){
+//         chartData2 = data;
+//         mainLine(2);
+//     }
+// });
 
 var menu = document.getElementById("select");
 menu.addEventListener("change", helper1);
@@ -223,21 +223,21 @@ document.getElementById("DownloadCSVBar2").addEventListener("click", function(){
     downloadCSVBar(barChartData2);
 });
 
-$.ajax({
-    dataType: "json",
-    url: 'barChartData1.json',
-    success: function(d){
-        mainBar(1, 'department', d);
-    }
-});
+// $.ajax({
+//     dataType: "json",
+//     url: 'barChartData1.json',
+//     success: function(d){
+//         mainBar(1, 'department', d);
+//     }
+// });
 
-$.ajax({
-    dataType: "json",
-    url: 'barChartData2.json',
-    success: function(d){
-        mainBar(2, 'topContent', d)
-    }
-});
+// $.ajax({
+//     dataType: "json",
+//     url: 'barChartData2.json',
+//     success: function(d){
+//         mainBar(2, 'topContent', d)
+//     }
+// });
 
 function mainBar(num, stringy, barChartData){
     if(stringy == 'departments'){
@@ -425,18 +425,20 @@ $("#datepicker2").on("change keyup paste", function(){
 })
 
 function helperRequestData() {
-    requestData('membersOverTime');
-    requestData('departments');
-    requestData('topContent');
-    requestData('pageViews');
-    $('.white-box').show();
-    $('.url-message').hide();
+    $('.white-box').show("slow", function(){
+        requestData('membersOverTime');
+        requestData('departments');
+        requestData('topContent');
+        requestData('pageViews');
+    }); 
+    $('.url-message').hide(); 
+    $('.loading').hide();
 }
 
-document.getElementById("getStatss").addEventListener("click", function(){
+document.getElementById("getStats").addEventListener("click", function(){
     //console.log(document.getElementById("statsurl").value);
     state.groupURL = document.getElementById("statsurl").value;
-    helperRequestData();  
+    helperRequestData(); 
 });
 
 var state = {
@@ -513,7 +515,7 @@ function requestData(reqType) {
             }, 0);
        }
     };
-    xmlHttp.open("POST", "/getData/request", false); // false for synchronous request
+    xmlHttp.open("POST", "/getData/request", true); // false for synchronous request
     xmlHttp.setRequestHeader("Content-type", "application/json");
     
     xmlHttp.send(reqStatement);
@@ -557,6 +559,6 @@ function requestData(reqType) {
 $(document).ready(function(){
     $('.white-box').hide();
 });
-
-
-
+// $(window).load(function() {
+//     $('#loading').hide();
+// });
