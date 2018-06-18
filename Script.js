@@ -436,12 +436,13 @@ function helperRequestData() {
     $('.loading2').show();
     $('.loading3').show();
     $('.url-message').hide(); 
+    xmlHttp.abort();
     $('.white-box').show("slow", function(){
         requestData('membersOverTime');
         requestData('departments');
         requestData('topContent');
         requestData('pageViews');
-    }); 
+    })
 }
 
 document.getElementById("getStatss").addEventListener("click", function(){
@@ -459,8 +460,11 @@ var state = {
 };
 function dateConverter(d) {
     year = String(d.getFullYear());
+    console.log(year);
     day = String(d.getDate());
-    month = String(d.getMonth());
+    console.log(day);
+    month = String(d.getMonth() + 1);
+    console.log(month);
     if (day.length == 1){
         day = "0" + day;
     }
@@ -469,12 +473,10 @@ function dateConverter(d) {
     }
     return year + "-" + month + "-" + day;
 }
-var startDay = new Date();
-startDay.setFullYear(startDay.getFullYear()-1);
-startDay.setMonth(startDay.getMonth()+1);
-state.startDate = dateConverter(startDay);
-endDay = new Date(startDay.getFullYear()+1, startDay.getMonth(), startDay.getDate())
-state.endDate = dateConverter(endDay);
+var d = new Date();
+d.setFullYear(d.getFullYear()-1);
+state.startDate = dateConverter(d);
+state.endDate = dateConverter(new Date());
 state.groupURL = "";
 
 function requestData(reqType) {
@@ -489,21 +491,14 @@ function requestData(reqType) {
                 state.endDate +'","allTime":true},"errorFlag":false}';
             break;
         case 'departments':
-            console.log('departments');
             reqStatement = '{"stepIndex":4,"reqType":{"category":1,"filter":"'+ 
-                state.groupURL +'"},"metric":4,"metric2":0,"time":{"startDate":"'+
-                state.startDate +'","endDate":"'+ 
-                state.endDate +'","allTime":true},"errorFlag":false}';
+                state.groupURL +'"},"metric":4,"metric2":0,"time":{"startDate":"2017-02-12","endDate":"2018-02-12","allTime":true},"errorFlag":false}'
             break;
         case 'topContent':
-            console.log('topContent');
             reqStatement = '{"stepIndex":4,"reqType":{"category":1,"filter":"'+
-                state.groupURL +'"},"metric":2,"metric2":0,"time":{"startDate":"'+
-                state.startDate +'","endDate":"'+ 
-                state.endDate +'","allTime":true},"errorFlag":false}';
+                state.groupURL +'"},"metric":2,"metric2":0,"time":{"startDate":"2017-02-12","endDate":"2018-02-12","allTime":true},"errorFlag":false}'
             break;
         case 'pageViews':
-            console.log('pageViews');
             reqStatement = '{"stepIndex":4,"reqType":{"category":1,"filter":"'+ 
                 state.groupURL +'"},"metric":1,"metric2":0,"time":{"startDate":"' + 
                 state.startDate +'","endDate":"' + 
@@ -523,24 +518,28 @@ function requestData(reqType) {
             console.log(this.response);
             switch(reqType) {
                 case 'membersOverTime':
+                    progress1 = false;
                     chartData2 = resp;
                     console.log(chartData2);
                     mainLine(2);
                     $('.loading1').hide();
                     break;
                 case 'departments':
+                    p2 = false;
                     barChartData1 = resp;
                     console.log(barChartData1);
                     mainBar(1, 'departments', resp);
                     $('.loading2').hide();
                     break;
                 case 'topContent':
+                    p3 = false;
                     barChartData2 = resp;
                     console.log(barChartData2);
                     mainBar(2, 'topContent', resp);
                     $('.loading3').hide();
                     break;
                 case 'pageViews':
+                    p4 = false;
                     chartData1 = resp;
                     console.log(chartData1);
                     mainLine(1)
