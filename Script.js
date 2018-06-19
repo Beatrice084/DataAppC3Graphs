@@ -22,6 +22,17 @@ var chartData2;
 //     }
 // });
 
+var progress1 = false; 
+var p2 = false;
+var p3 = false;
+var p4 = false; 
+
+var beforeSend = function(){
+    if (progress1 == true && p2 == true && p3 == true && p4 == true){
+        xmlHttp.abort();
+    }
+}
+
 var menu = document.getElementById("select");
 menu.addEventListener("change", helper1);
 
@@ -436,7 +447,15 @@ function helperRequestData() {
     $('.loading2').show();
     $('.loading3').show();
     $('.url-message').hide(); 
-    xmlHttp.abort();
+    // if (progress1 == false && p2 == false && p3 == false && p4 == false){
+    //     $('.white-box').show("slow", function(){
+    //         requestData('membersOverTime');
+    //         requestData('departments');
+    //         requestData('topContent');
+    //         requestData('pageViews');
+    //     }); 
+    // }
+    //xmlHttp.abort();
     $('.white-box').show("slow", function(){
         requestData('membersOverTime');
         requestData('departments');
@@ -553,7 +572,6 @@ function requestData(reqType) {
     };
     xmlHttp.open("POST", "/getData/request", true); // false for synchronous request
     xmlHttp.setRequestHeader("Content-type", "application/json");
-    
     xmlHttp.send(reqStatement);
     // $.ajax({
     //     type: 'post',

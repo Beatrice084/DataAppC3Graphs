@@ -200,9 +200,9 @@ div.ui.action.input{
 }
 .field1{
     display: inline-block;
-    margin-right: 190px;
     top: 50%;
     transform: translateY(-50%);
+    margin-right: 190px;
 }
 .url-message{
     top: 50%;
@@ -239,3 +239,51 @@ div.ui.action.input{
     left: 50%;
     top: 35%;
  }
+
+ @media only screen and (max-width: 1175px) and (min-width: 680px){
+    .getStats{
+        display: inline;
+        position: absolute;
+        left: 30px;
+        margin-left: 33%;
+    }
+    .url-message{
+        margin-left: 33px;
+        margin-top: 20px;
+    }
+    div.ui.action.input{
+        margin-left: 33px;
+    }
+}
+
+@media only screen and (max-width: 689px) and (min-width: 320px){
+    .field{
+        display: inline-block;
+        margin: auto;
+        margin-left: 33px;
+        top: 10%;
+        transform: translateY(-50%);
+    }
+    .field1{
+        display: inline-block;
+        margin: auto;
+        margin-left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .getStats{
+        display: inline;
+        position: absolute;
+        left: 30px;
+        margin-left: 33%;
+    }
+    .url-message{
+        margin-left: 33px;
+        margin-top: 20px;
+    }
+    div.ui.action.input{
+        margin-left: 33px;
+    }
+}
+
+
