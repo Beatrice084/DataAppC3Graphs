@@ -241,6 +241,9 @@ div.ui.action.input{
  }
 
  @media only screen and (max-width: 1175px) and (min-width: 680px){
+    .App{
+        background-color: lightblue;
+    }
     .getStats{
         display: inline;
         position: absolute;
@@ -256,7 +259,10 @@ div.ui.action.input{
     }
 }
 
-@media only screen and (max-width: 689px) and (min-width: 320px){
+@media only screen and (max-width: 689px) and (min-width: 530px){
+    .App{
+        background-color: lightgreen;
+    }
     .field{
         display: inline-block;
         margin: auto;
@@ -267,7 +273,7 @@ div.ui.action.input{
     .field1{
         display: inline-block;
         margin: auto;
-        margin-left: 10px;
+        margin-left: 3px;
         top: 50%;
         transform: translateY(-50%);
     }
@@ -285,5 +291,39 @@ div.ui.action.input{
         margin-left: 33px;
     }
 }
+
+@media only screen and (max-width: 529px) and (min-width: 320px){
+    .App{
+        background-color: red;
+    }
+    .field{
+        display: inline-block;
+        margin: auto;
+        margin-left: 33px;
+        top: 10%;
+        transform: translateY(-50%);
+        margin-top: 10px;
+    }
+    .field1{
+        display: inline-block;
+        margin: auto;
+        margin-left: 3px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .url-message{
+        margin-left: 33px;
+        margin-top: 20px;
+    }
+    .getStats{
+        display: inline-block;
+    }
+    div.ui.action.input{
+        margin-left: 33px;
+        float: right; 
+        width: 425px;
+    }
+}
+
 
 
