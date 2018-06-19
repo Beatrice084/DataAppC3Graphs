@@ -138,6 +138,7 @@ select.ui.dropdown{
     display: inline-block; 
     width: 475px; 
     height: 200px;
+    margin-bottom: 68px;
 }
 div.ui.action.input{
     float: right; 
@@ -190,6 +191,7 @@ div.ui.action.input{
 
 #getStats {
     display: inline-block;
+    margin-bottom: 15px;
 }
 .field{
     display: inline-block;
