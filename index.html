@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.css"> 
         <link rel="stylesheet" type="text/css" href="style.css">
         <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
@@ -30,7 +31,7 @@
             $( function() {
                 $( "#datepicker1" ).datepicker();
                 var d = new Date();
-                d.setFullYear(d.getFullYear()-1);
+                d.setDate(d.getDate() - 90);
                 $( "#datepicker1" ).datepicker("setDate", d);
             } );
             $( function() {
@@ -40,6 +41,16 @@
         </script>
     </head>
     <body>
+        <div id=unsupported-browser>
+            <div class="container-clearfix">
+                <!-- <img src="C:/Users/trinet.tbs-004409/Desktop/DataApp/DataAppJune6v2/DataAppC3Graphs4graph test-88af208f96310a0ec090fe13664d582b2f2733a3/server/public/iebad.jpeg"> -->
+                <button class="ui right floated button" id="ignore" onclick="ignore()">Ignore</button>
+                <h5 id="browser-warning">
+                    Please note that Internet Explorer 11 and below is outdated. You've therefore been redirected to a simplified version of the GCcollab stats page. We recommed upgrading to the latest <a href="https://www.microsoft.com/en-us/windows/microsoft-edge">Microsoft Edge</a>, <a href="https://chrome.google.com">Google Chrome</a>, or <a href="https://mozilla.org/firefox">Firefox</a>.
+                </h5>
+            </div>
+        </div>
+        <script src=browserDetect.js></script>
         <div id="root">
             <div class="App" id="App">
                 <div class="div1" id="div1"></div>
@@ -72,13 +83,12 @@
                                     </div>
                                 </div>
                                 <div id = "getStats">
-                                        <div class="ui action input">
-                                            <input placeholder="Paste group URL here..." type="text" id="statsurl">
-                                            <button class="ui button" role="button" id="getStatss">Get stats</button>
-                                        </div>
+                                    <div class="ui action input">
+                                        <input placeholder="Paste group URL here..." type="text" id="statsurl">
+                                        <button class="ui button" role="button" id="getStatss">Get stats</button>
+                                    </div>
                                 </div>
                             </div>
-                            <script type="text/javascript" src="browserDetect.js"></script>
                             <!–– white box around 4 graphs ––>
                             <div class="aroundWhiteBox" id-"aroundWhiteBoxID">
                                 <div class="white-box" id="white-box">

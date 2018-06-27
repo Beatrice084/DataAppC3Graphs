@@ -4,6 +4,7 @@ var time2 = 'monthly';
 var chartData1;  //var to store data from the json file
 var chartData2;
 
+
 // $.ajax({
 //     dataType: "json",
 //     url: 'lineChartData1.json',
@@ -421,6 +422,11 @@ String.prototype.replaceAll = function(search, replacement) {
 
 $("#datepicker1").on("change keyup paste", function(){
     //console.log(this.value);
+    
+    console.log($("#datepicker2").datepicker("getDate"));
+    if($("#datepicker2").datepicker("getDate") < $("#datepicker1").datepicker("getDate")){
+        document.getElementById("getStatss").disabled = true;
+    }
     var day = this.value.slice(3,5);
     var month = this.value.slice(0,2);
     var year = this.value.slice(6,10);
@@ -432,6 +438,9 @@ $("#datepicker1").on("change keyup paste", function(){
 
 $("#datepicker2").on("change keyup paste", function(){
     //console.log(this.value);
+    if($("#datepicker2").datepicker("getDate") < $("#datepicker1").datepicker("getDate")){
+        document.getElementById("getStatss").disabled = true;
+    }
     var day = this.value.slice(3,5);
     var month = this.value.slice(0,2);
     var year = this.value.slice(6,10);
