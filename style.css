@@ -249,9 +249,9 @@ div.ui.action.input{
  }
 
  @media only screen and (max-width: 1175px) and (min-width: 680px){
-    .App{
+    /* .App{
         background-color: lightblue;
-    }
+    } */
     .getStats{
         display: inline;
         position: absolute;
@@ -314,6 +314,7 @@ div.ui.action.input{
         margin: 0 auto;
     }
     .chart2{
+        margin-top: 10px;
         display: block; 
         width: 475px; 
         height: 200px; 
@@ -346,13 +347,14 @@ div.ui.action.input{
     }
     .csv-button{
         float: left;
+        margin-right: 100px;
     }
 }
 
 @media only screen and (max-width: 689px) and (min-width: 560px){
-    .App{
+    /* .App{
         background-color: lightgreen;
-    }
+    } */
     .field{
         display: inline-block;
         margin: auto;
@@ -434,9 +436,9 @@ div.ui.action.input{
 }
 
 @media only screen and (max-width: 559px) and (min-width: 475px){
-    .App{
+    /* .App{
         background-color: red;
-    }
+    } */
     .field{
         display: inline-block;
         margin: auto;
@@ -523,9 +525,9 @@ div.ui.action.input{
 }
 
 @media only screen and (max-width: 475px) and (min-width: 375px){
-    .App{
+    /* .App{
         background-color: darkblue;
-    }
+    } */
     .field{
         display: inline-block;
         margin: auto;
@@ -613,9 +615,9 @@ div.ui.action.input{
 }
 
 @media only screen and (max-width: 375px){
-    .App{
+    /* .App{
         background-color: yellow;
-    }
+    } */
     .field{
         display: inline-block;
         margin: auto;
