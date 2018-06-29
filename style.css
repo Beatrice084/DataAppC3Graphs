@@ -12,6 +12,9 @@
     font-weight: bold;
     text-transform: capitalize;
 }
+#lang-toggle{
+    margin-left: 90%;
+}
 .div1{
     height: 15px; 
     width: 1px;
