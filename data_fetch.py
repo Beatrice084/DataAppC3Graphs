@@ -18,14 +18,13 @@ def get_group_guid(urlString):
     url3 = url2[url2.find('/')+1:]
     return url3[:url3.find('/')]
 
-def get_group_name(urlString):
+def get_group_name(urlString, req_type):
     try:
         url2 = urlString[urlString.find('profile/'):]
         url3 = url2[url2.find('/')+1:]
         url4 = url3[url3.find('/')+1:]
         return url4
     except:
-        req_type = req_obj['reqType']
         gc.connect_to_database()
         gc.create_session()
         url = req_type['filter']
@@ -67,7 +66,7 @@ def main(testing=False):
             ga = gcga()
             ga.set_platform('gccollab')
 
-            group_name = get_group_name(url)
+            group_name = get_group_name(url, req_type)
 
             # Request a dataframe containing pageviews and corresponding dates
             ret = ga.pageviews([url, 'NOToffset'], intervals=True, start_date=start_time, end_date=end_time)
