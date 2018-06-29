@@ -25,6 +25,7 @@ def get_group_name(urlString):
         url4 = url3[url3.find('/')+1:]
         return url4
     except:
+        req_type = req_obj['reqType']
         gc.connect_to_database()
         gc.create_session()
         url = req_type['filter']
