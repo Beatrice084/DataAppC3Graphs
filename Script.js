@@ -195,6 +195,7 @@ function createChartLine(timeFrame, chartID){
                     }
                 }
             },
+            groupName: '',
             onrendered: function() {
                 d3.selectAll(".c3-axis.c3-axis-x .tick text")
                     .style("display", "none");
@@ -507,6 +508,10 @@ state.startDate = dateConverter(d);
 state.endDate = dateConverter(new Date());
 state.groupURL = "";
 
+function replaceAll(str, find, replace) {
+    return str.replace(new RegExp(find, 'g'), replace);
+}
+
 function requestData(reqType) {
     // Form correct request based on request type
     // Really ugly, needs back end changes
@@ -570,6 +575,8 @@ function requestData(reqType) {
                     p4 = false;
                     chartData1 = resp;
                     console.log(chartData1);
+                    document.getElementById("title").innerHTML=replaceAll(chartData1.group_name, "-", " ");
+                    console.log(chartData1.group_name)
                     mainLine(1)
                     $('.loading').hide();
                     break;
