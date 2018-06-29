@@ -19,10 +19,20 @@ def get_group_guid(urlString):
     return url3[:url3.find('/')]
 
 def get_group_name(urlString):
-    url2 = urlString[urlString.find('profile/'):]
-    url3 = url2[url2.find('/')+1:]
-    url4 = url3[url3.find('/')+1:]
-    return url4
+    try:
+        url2 = urlString[urlString.find('profile/'):]
+        url3 = url2[url2.find('/')+1:]
+        url4 = url3[url3.find('/')+1:]
+        return url4
+    except:
+        gc.connect_to_database()
+        gc.create_session()
+        url = req_type['filter']
+        url2 = url[url.find('profile/'):]
+        url3 = url2[url2.find('/')+1:]
+        group_guid = url3[:url3.find('/')]
+        group_name = gc.groups.name_from_guid(group_guid)
+        return group_name
 
 #Read data from stdin
 def read_in():
