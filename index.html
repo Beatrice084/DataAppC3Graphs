@@ -56,7 +56,7 @@
                 <div class="div1" id="div1"></div>
                 <div class="div2">
                     <div id="lang-toggle">
-                        <a id="eng-toggle" class="lang">en</a> | <a id="fr-toggle" class="lang">fr</a>
+                        <a id="eng-toggle" class="lang" href="#">en</a> | <a href="#" id="fr-toggle" class="lang">fr</a>
                     </div>
                     <div class="ui-container">
                         <header>
@@ -65,7 +65,7 @@
                         <div class="App-intro">
                             <!–– purple title bar ––>
                             <div class="title-bar">
-                                <h1 class="h11"><strong>GC</strong>collab Group Stats Page</h1>
+                                <h1 class="h11" id='h11'><strong>GC</strong>collab Group Stats Page</h1>
                             </div>
                             <!–– calendar and enter URL ––>
                             <div class="two-fields">
@@ -88,7 +88,7 @@
                                 <div id = "getStats">
                                     <div class="ui action input">
                                         <input placeholder="Paste group URL here..." type="text" id="statsurl">
-                                        <button class="ui button" role="button" id="getStatss">Get stats</button>
+                                        <button class="ui button" role="button" id="getStatss">Get Stats</button>
                                     </div>
                                 </div>
                             </div>
@@ -101,12 +101,12 @@
                                         <div class="ui-segment-ind-content-box" id="box1">
                                             <!–– lineChartData1 ––>
                                             <p id = 'title'></p>
-                                            <p class="title">Page views</p>
+                                            <p class="title" id="pageViewsTitle">Page Views</p>
                                             <button class = "csv-button" id="DownloadCSVLine1" tabindex="0" type="button">
                                                 <div>
                                                     <div class = "div1button">
                                                         <div class="div2button"></div>
-                                                        <span class"sytlebutton">Download data as CSV</span>
+                                                        <span class"sytlebutton" id="downloadCSV">Download data as CSV</span>
                                                     </div>
                                                     <svg class="svgButton" viewBox="0 0 24 24">
                                                         <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path>
@@ -115,8 +115,8 @@
                                             </button>
                                             <!-- Monthly/daily dropdown-->
                                             <select class="ui dropdown" id="select">
-                                                    <option value="monthly1" selected>Monthly</option>
-                                                    <option value="daily1">Daily</option>  
+                                                    <option value="monthly1" id='month' selected>Monthly</option>
+                                                    <option value="daily1" id="day">Daily</option>  
                                             </select>
                                             <!-- End Monthly/daily dropdown-->  
                                              <!-- loading symbol-->
@@ -131,13 +131,13 @@
                                         </div>
                                         <!–– box around indivial graph ––>
                                         <div class="ui-segment-ind-content-box" id="box2">
-                                            <!–– lineChartData1 ––>
-                                            <p class = "title">Group Membership</p>
+                                            <!–– lineChartData2 ––>
+                                            <p class = "title" id="groupMemebershipTitle">Group Membership</p>
                                             <button class = "csv-button" id="DownloadCSVLine2" tabindex="0" type="button">
                                                 <div>
                                                     <div class = "div1button">
                                                         <div class="div2button"></div>
-                                                        <span class="sytlebutton">Download data as CSV</span>
+                                                        <span class="sytlebutton" id="downloadCSV">Download data as CSV</span>
                                                     </div>
                                                     <svg class="svgButton" viewBox="0 0 24 24">
                                                         <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path>
@@ -146,8 +146,8 @@
                                             </button>
                                             <!-- Monthly/daily dropdown-->
                                             <select class="ui dropdown" id="select2">
-                                                    <option value="monthly2" selected>Monthly</option>
-                                                    <option value="daily2">Daily</option>  
+                                                    <option value="monthly2" id="month2" selected>Monthly</option>
+                                                    <option value="daily2" id="day2">Daily</option>  
                                             </select>
                                             <!-- loading symbol-->
                                             <div id="loading1" class="loading1">
@@ -166,12 +166,12 @@
                                         <div class="ui-segment-ind-content-box" id="box3">
                                             <!–– BarChartData1 ––>
                                             <div>
-                                                <p class = "title">Group Members by Department</p>
+                                                <p class = "title" id="departmentTitle">Group Members by Department</p>
                                                 <button class = "csv-button" id="DownloadCSVBar1" tabindex="0" type="button">
                                                     <div>
                                                         <div class = "div1button">
                                                             <div class="div2button"></div>
-                                                            <span class="sytlebutton">Download data as CSV</span>
+                                                            <span class="sytlebutton" id="downloadCSV">Download data as CSV</span>
                                                         </div>
                                                         <svg class="svgButton" viewBox="0 0 24 24">
                                                             <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path>
@@ -195,12 +195,12 @@
                                         <div class="ui-segment-ind-content-box-final" id="box4">
                                             <!–– BarChartData2 ––>
                                             <div>
-                                                <p class = "title">Top Group Content</p>
+                                                <p class = "title" id="topContentTitle">Top Group Content</p>
                                                 <button class = "csv-button" id="DownloadCSVBar2" tabindex="0" type="button">
                                                     <div>
                                                         <div class = "div1button">
                                                             <div class="div2button"></div>
-                                                            <span class="sytlebutton">Download data as CSV</span>
+                                                            <span class="sytlebutton" id="downloadCSV">Download data as CSV</span>
                                                         </div>
                                                         <svg class="svgButton" viewBox="0 0 24 24">
                                                             <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path>
@@ -223,7 +223,7 @@
                                     </div>
                                 </div>
                                 <!–– paste url message ––>
-                                <p class="url-message">Paste the group URL above and set your desired start and end dates to retrieve relevant statistics.</p>
+                                <p class="url-message" id = "url-message">Paste the group URL above and set your desired start and end dates to retrieve relevant statistics.</p>
                             </div>
                         </div>
                     </div>

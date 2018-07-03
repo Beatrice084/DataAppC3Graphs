@@ -1,9 +1,10 @@
-var time1 = 'monthly';
+var time1 = 'monthly'; //var to store value of monthly/daily dropdown
 var time2 = 'monthly';
 
 var chartData1;  //var to store data from the json file
 var chartData2;
 
+var currentLang = 'EN'; //var to store current language of page
 
 // $.ajax({
 //     dataType: "json",
@@ -79,6 +80,38 @@ document.getElementById("DownloadCSVLine2").addEventListener("click", function()
         time = chartData2.daily;
     }
     downloadCSVLine(time);
+});
+
+$("#eng-toggle").on('click', function(event) {
+    currentLang = "EN";
+    document.getElementById("h11").innerHTML="<strong>GC</strong>collab Group Stats Page";
+    document.getElementById("url-message").innerHTML="Paste the group URL above and set your desired start and end dates to retrieve relevant statistics.";
+    document.getElementById("pageViewsTitle").innerHTML="Page Views";
+    document.getElementById("downloadCSV").innerHTML="Download data as CSV";
+    document.getElementById("month").innerHTML="Monthly";
+    document.getElementById("day").innerHTML="Daily";
+    document.getElementById("month").innerHTML="Monthly";
+    document.getElementById("day").innerHTML="Daily";
+    document.getElementById("groupMemebershipTitle").innerHTML="Group Membership";
+    document.getElementById("departmentTitle").innerHTML="Group Members by Department";
+    document.getElementById("topContentTitle").innerHTML="Top Group Content";
+    document.getElementById("getStatss").innerHTML="Get Stats";
+});
+
+$("#fr-toggle").on('click', function(event) {
+    currentLang = "FR";
+    document.getElementById("h11").innerHTML="Page des statistiques des groupes <strong>GC</strong>collab";
+    document.getElementById("url-message").innerHTML="Collez l'URL du groupe ci-dessus et choisissez les dates de début et de fin pour récupérer les statistiques pertinentes.";
+    document.getElementById("pageViewsTitle").innerHTML="Pages consultées";
+    document.getElementById("downloadCSV").innerHTML="Télécharger les données au format CSV";
+    document.getElementById("month").innerHTML="Mensuel";
+    document.getElementById("day").innerHTML="Quotidien";
+    document.getElementById("month2").innerHTML="Mensuel";
+    document.getElementById("day2").innerHTML="Quotidien";
+    document.getElementById("groupMemebershipTitle").innerHTML="Appartenance au groupe";
+    document.getElementById("departmentTitle").innerHTML="Membres du groupe par département";
+    document.getElementById("topContentTitle").innerHTML="Top contenu du groupe";
+    document.getElementById("getStatss").innerHTML="Obtenir des stats";
 });
 
 function mainLine(num) {
