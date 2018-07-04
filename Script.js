@@ -82,6 +82,65 @@ document.getElementById("DownloadCSVLine2").addEventListener("click", function()
     downloadCSVLine(time);
 });
 
+function swap(dict){
+    var ret = {};
+    for(var key in dict){
+      ret[dict[key]] = key;
+    }
+    return ret;
+}
+ 
+var fr_dict = {};
+var fr_list = [];
+var inverse_fr_dict = {};
+$.getJSON("fr_dpts.json", function(result){
+    //console.log(result);
+    fr_dict = result;
+    var values = $.map(fr_dict, function(value,key) {return value});
+    var keys = $.map(fr_dict, function(value, key) {return key});
+    // console.log(values);
+    // console.log(keys);
+    fr_list = Array(values);
+    inverse_fr_dict = swap(fr_dict);
+    //console.log(inverse_fr_dict);
+});
+
+var en_dict = {};
+var en_list = [];
+var inverse_en_dict = {};
+$.getJSON("en_dpts.json", function(result){
+    //console.log(result);
+    en_dict = result;
+    var values = $.map(en_dict, function(value,key) {return value});
+    var keys = $.map(en_dict, function(value, key) {return key});
+    // console.log(values);
+    // console.log(keys);
+    en_list = Array(values);
+    inverse_en_dict = swap(en_dict);
+    //console.log(inverse_fr_dict);
+});
+
+//Returns the bilingual version of the name given
+function get_bilingual_name (dept){
+    try{
+        return fr_dict[inverse_en_dict[String(dept)]]
+    }
+    catch (err){
+        return en_dict[inverse_fr_dict[String(dept)]]
+    }
+}
+
+function departmentsToFrench (barchartData1){
+    var barChartData1FR = $.extend(true, {}, barChartData1);
+    for(var i=0; i<barchartData1["departments"].length; i++){
+        barChartData1FR["departments"][i] = fr_dict[inverse_en_dict[barChartData1FR["departments"][i]]];
+        if (barChartData1FR["departments"][i] === undefined){
+            barChartData1FR["departments"][i] = barChartData1["departments"][i];
+        }
+    }
+    return barChartData1FR;
+}
+
 $("#eng-toggle").on('click', function(event) {
     currentLang = "EN";
     document.getElementById("h11").innerHTML="<strong>GC</strong>collab Group Stats Page";
@@ -96,6 +155,7 @@ $("#eng-toggle").on('click', function(event) {
     document.getElementById("departmentTitle").innerHTML="Group Members by Department";
     document.getElementById("topContentTitle").innerHTML="Top Group Content";
     document.getElementById("getStatss").innerHTML="Get Stats";
+    mainBar(1, 'departments', barChartData1);
 });
 
 $("#fr-toggle").on('click', function(event) {
@@ -112,6 +172,13 @@ $("#fr-toggle").on('click', function(event) {
     document.getElementById("departmentTitle").innerHTML="Membres du groupe par département";
     document.getElementById("topContentTitle").innerHTML="Top contenu du groupe";
     document.getElementById("getStatss").innerHTML="Obtenir des stats";
+    zeroethKey = Object.keys(barChartData1)[0]; //name of first column ie "departments"
+    firstKey = Object.keys(barChartData1)[1]; //name of second column ie "members"
+    barChartData1[zeroethKey].shift(); //adds "department" to start of department array 
+    barChartData1[firstKey].shift();
+    frenchDepartments = departmentsToFrench(barChartData1);
+    console.log(frenchDepartments);
+    mainBar(1, 'departments', frenchDepartments);
 });
 
 function mainLine(num) {
@@ -159,6 +226,7 @@ function prepareTableDataLine(timeFrame){
 }
 
 function createTable(tableData, tableID, metric){
+    console.log(tableData['departments']);
     if ( $.fn.dataTable.isDataTable( tableID ) ) { //check if this is already a datatable
         $(tableID).DataTable().clear();              //clear its data
         $(tableID).dataTable().fnAddData(tableData);     //populate it with a new set of data
@@ -309,11 +377,11 @@ function prepareTableDataBar(chartData){
 }
 
 function createChartBar(chartData, chartID){
-    zeroethKey = Object.keys(chartData)[0];
-    firstKey = Object.keys(chartData)[1];
-    chartData[zeroethKey].unshift(zeroethKey);
+    zeroethKey = Object.keys(chartData)[0]; //name of first column ie "departments"
+    firstKey = Object.keys(chartData)[1]; //name of second column ie "members"
+    chartData[zeroethKey].unshift(zeroethKey); //adds "department" to start of department array 
     chartData[firstKey].unshift(firstKey);
-    columnss = chartData[zeroethKey].slice(1,21);
+    columnss = chartData[zeroethKey].slice(1,21); 
     dataa = chartData[firstKey].slice(0,21);
     var str = firstKey;
     var chart = c3.generate({
