@@ -141,7 +141,35 @@ function departmentsToFrench (barchartData1){
     return barChartData1FR;
 }
 
+var groupNameEN;
+var groupNameFR;
+var hardCopyURLTitle;
+
+function updatedTitle (){
+    hardCopyBarChart2 = $.extend(true, {}, barChartData2);
+        try{ 
+            var enFrTitles = replaceAll(JSON.parse(hardCopyBarChart2.group_name).en, "-", " ").split(" / ");
+            try{
+                groupNameEN = enFrTitles[0];
+            }
+            catch (err){
+                groupNameEN = replaceAll(hardCopyURLTitle.group_name, "-", " ");
+            }
+            try{
+                groupNameFR = enFrTitles[1];
+            }
+            catch(err){
+                groupNameEN = replaceAll(hardCopyURLTitle.group_name, "-", " ");
+            }
+        } catch (err) {
+            groupNameEN = replaceAll(hardCopyURLTitle.group_name, "-", " ");
+            groupNameFR = replaceAll(hardCopyURLTitle.group_name, "-", " ");
+        }
+}
+
 $("#eng-toggle").on('click', function(event) {
+    updatedTitle();
+    document.getElementById("title").innerHTML=groupNameEN;
     currentLang = "EN";
     document.getElementById("h11").innerHTML="<strong>GC</strong>collab Group Stats Page";
     document.getElementById("url-message").innerHTML="Paste the group URL above and set your desired start and end dates to retrieve relevant statistics.";
@@ -160,6 +188,8 @@ $("#eng-toggle").on('click', function(event) {
 
 $("#fr-toggle").on('click', function(event) {
     currentLang = "FR";
+    updatedTitle();
+    document.getElementById("title").innerHTML=groupNameFR;
     document.getElementById("h11").innerHTML="Page des statistiques des groupes <strong>GC</strong>collab";
     document.getElementById("url-message").innerHTML="Collez l'URL du groupe ci-dessus et choisissez les dates de début et de fin pour récupérer les statistiques pertinentes.";
     document.getElementById("pageViewsTitle").innerHTML="Pages consultées";
