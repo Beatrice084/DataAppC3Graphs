@@ -168,8 +168,13 @@ function updatedTitle (){
 }
 
 $("#eng-toggle").on('click', function(event) {
-    updatedTitle();
-    document.getElementById("title").innerHTML=groupNameEN;
+    try{
+        updatedTitle();
+        document.getElementById("title").innerHTML=groupNameEN;
+    }
+    catch(err){
+        console.log("languagetitleerror");
+    }
     currentLang = "EN";
     document.getElementById("h11").innerHTML="<strong>GC</strong>collab Group Stats Page";
     document.getElementById("url-message").innerHTML="Paste the group URL above and set your desired start and end dates to retrieve relevant statistics.";
@@ -187,9 +192,14 @@ $("#eng-toggle").on('click', function(event) {
 });
 
 $("#fr-toggle").on('click', function(event) {
+    try{
+        updatedTitle();
+        document.getElementById("title").innerHTML=groupNameFR;
+    }
+    catch(err){
+        console.log("languagetitleerror");
+    }
     currentLang = "FR";
-    updatedTitle();
-    document.getElementById("title").innerHTML=groupNameFR;
     document.getElementById("h11").innerHTML="Page des statistiques des groupes <strong>GC</strong>collab";
     document.getElementById("url-message").innerHTML="Collez l'URL du groupe ci-dessus et choisissez les dates de début et de fin pour récupérer les statistiques pertinentes.";
     document.getElementById("pageViewsTitle").innerHTML="Pages consultées";
